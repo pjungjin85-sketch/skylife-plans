@@ -566,7 +566,7 @@ function buildTable(plans) {
       <td><span class="price ${pc}">${p.price.toLocaleString()}원</span></td>
       <td class="col-net">${netBadge}</td>
       <td><span class="spec-chip">${voiceDisplay}</span><br><span class="spec-chip">문자 ${p.sms}</span></td>
-      <td><span class="spec-chip">${p.data}</span>${p.qos && p.qos!=='-' ? '<span class="spec-chip">'+p.qos+'</span>' : ''}</td>
+      <td><span class="spec-chip">${p.data}</span>${p.qos && p.qos!=='-' ? `<span class="spec-chip" style="cursor:pointer;border-color:var(--red-border);color:var(--red);" onclick="openQosModal('${p.qos}')">↓${p.qos}</span>` : ''}</td>
       <td>${p.benefit ? `<span class="benefit-link" onclick="openBenefitModal('${p.benefit.replace(/'/g, "\\'")}')">🎁 ${p.benefit}</span>` : '<span style="color:var(--light)">-</span>'}</td>
     </tr>`;
   }).join('');
@@ -586,6 +586,116 @@ function buildTable(plans) {
 }
 
 // ── 제휴혜택 상세 데이터 ──
+// ── QoS 속도 상세 데이터 ──
+const QOS_DETAIL = {
+  '200Kbps': {
+    label: '200 Kbps',
+    grade: '최저 속도',
+    gradeColor: '#999',
+    items: [
+      { icon: '✅', text: '카카오톡 텍스트 메시지 수신' },
+      { icon: '✅', text: '간단한 이메일 텍스트 확인' },
+      { icon: '⚠️', text: '이미지 로딩 — 매우 느림 (수십 초 소요)' },
+      { icon: '❌', text: '유튜브·넷플릭스 등 동영상 스트리밍 불가' },
+      { icon: '❌', text: '음악 스트리밍 (끊김 심함)' },
+      { icon: '❌', text: '지도·내비게이션 실시간 로딩 불가' },
+    ],
+    note: '* 데이터 소진 후 제한 속도 / 음성 통화·문자는 속도 무관하게 정상 이용 가능'
+  },
+  '400Kbps': {
+    label: '400 Kbps',
+    grade: '기본 속도',
+    gradeColor: '#f59e0b',
+    items: [
+      { icon: '✅', text: '카카오톡 메시지 및 이미지 전송 (약간 느림)' },
+      { icon: '✅', text: '간단한 웹 검색 및 텍스트 페이지 열람' },
+      { icon: '✅', text: '음악 스트리밍 — 저음질(64Kbps) 재생 가능' },
+      { icon: '⚠️', text: 'SNS 피드 — 이미지 로딩 느림' },
+      { icon: '❌', text: '유튜브·넷플릭스 등 동영상 스트리밍 불가' },
+      { icon: '❌', text: '지도·내비게이션 실시간 로딩 어려움' },
+    ],
+    note: '* 데이터 소진 후 제한 속도 / 음성 통화·문자는 속도 무관하게 정상 이용 가능'
+  },
+  '1Mbps': {
+    label: '1 Mbps',
+    grade: '일반 속도',
+    gradeColor: '#3b82f6',
+    items: [
+      { icon: '✅', text: '카카오톡·SNS — 이미지 포함 원활히 이용' },
+      { icon: '✅', text: '웹 서핑 전반적으로 이용 가능 (약간 느림)' },
+      { icon: '✅', text: '음악 스트리밍 — 고음질(320Kbps)도 가능' },
+      { icon: '✅', text: '유튜브 360p 화질 재생 가능 (간헐적 버퍼링)' },
+      { icon: '✅', text: '지도·내비게이션 이용 가능' },
+      { icon: '⚠️', text: '유튜브 720p 이상 — 끊김 발생할 수 있음' },
+    ],
+    note: '* 데이터 소진 후 제한 속도 / 일상적인 가벼운 사용에는 충분한 수준'
+  },
+  '3Mbps': {
+    label: '3 Mbps',
+    grade: '준수 속도',
+    gradeColor: '#10b981',
+    items: [
+      { icon: '✅', text: '카카오톡·SNS·웹 서핑 — 불편함 없이 이용' },
+      { icon: '✅', text: '음악 스트리밍 — 모든 음질 원활히 재생' },
+      { icon: '✅', text: '유튜브 720p 화질 원활히 재생' },
+      { icon: '✅', text: '지도·내비게이션 실시간 이용 원활' },
+      { icon: '✅', text: '화상통화 (일반 화질) 이용 가능' },
+      { icon: '⚠️', text: '유튜브 1080p 이상 — 간헐적 버퍼링 가능' },
+    ],
+    note: '* 데이터 소진 후 제한 속도 / 대부분의 일상 사용에 충분한 수준'
+  },
+  '5Mbps': {
+    label: '5 Mbps',
+    grade: '빠른 속도',
+    gradeColor: '#8b5cf6',
+    items: [
+      { icon: '✅', text: '카카오톡·SNS·웹 서핑 — 매우 원활' },
+      { icon: '✅', text: '음악 스트리밍 — 모든 음질 완벽 재생' },
+      { icon: '✅', text: '유튜브 1080p 풀HD 화질 재생 가능' },
+      { icon: '✅', text: '넷플릭스 SD~HD 화질 스트리밍 가능' },
+      { icon: '✅', text: '화상통화 (고화질) 이용 가능' },
+      { icon: '⚠️', text: '4K(UHD) 영상 — 끊김 발생할 수 있음' },
+    ],
+    note: '* 데이터 소진 후 제한 속도 / 고화질 영상 시청 포함 대부분의 사용 가능'
+  },
+  '10Mbps': {
+    label: '10 Mbps',
+    grade: '고속',
+    gradeColor: '#e60012',
+    items: [
+      { icon: '✅', text: '카카오톡·SNS·웹 서핑 — 완전 원활' },
+      { icon: '✅', text: '유튜브 4K(UHD) 화질 재생 가능' },
+      { icon: '✅', text: '넷플릭스 FHD·UHD 스트리밍 가능' },
+      { icon: '✅', text: '화상통화 고화질 이용 가능' },
+      { icon: '✅', text: '대용량 파일 다운로드 비교적 빠름' },
+      { icon: '✅', text: '대부분의 모바일 서비스 불편함 없이 이용' },
+    ],
+    note: '* 데이터 소진 후 제한 속도 / 일반 LTE의 일부 수준이나 고사양 서비스도 이용 가능'
+  },
+};
+
+function openQosModal(qos) {
+  const detail = QOS_DETAIL[qos];
+  const body = document.getElementById('benefitModalBody');
+  if (!detail) {
+    body.innerHTML = `<div class="modal-benefit-name">${qos}</div><p style="font-size:13px;color:var(--mid);margin-top:8px">상세 정보를 준비 중입니다.</p>`;
+  } else {
+    const rows = detail.items.map(item =>
+      `<div class="modal-row"><span class="modal-row-icon">${item.icon}</span><span>${item.text}</span></div>`
+    ).join('');
+    body.innerHTML = `
+      <div class="modal-benefit-name">📶 ${detail.label}</div>
+      <div class="modal-badge" style="background:${detail.gradeColor}20;color:${detail.gradeColor};border-color:${detail.gradeColor}40">${detail.grade} — 데이터 소진 후 속도</div>
+      <div class="modal-section">
+        <div class="modal-section-title">서비스별 이용 가능 여부</div>
+        ${rows}
+      </div>
+      ${detail.note ? `<div class="modal-note">${detail.note}</div>` : ''}
+    `;
+  }
+  document.getElementById('benefitModal').classList.add('open');
+}
+
 const BENEFIT_DETAIL = {
   'CU할인(20%, 월최대5천원)': {
     icon: '🏪',
