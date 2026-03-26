@@ -127,6 +127,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
   .benefit-text{max-width:120px;font-size:10px;}
   .spec-chip{font-size:10px;padding:1px 4px;}
 }
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 </style>
 </head>
 <body>
@@ -140,11 +141,17 @@ tr:hover td{background:rgba(255,255,255,.02);}
   </div>
 </header>
 
-<div style="text-align:center;padding:28px 20px 8px;">
-  <h1 style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-.01em;">
-    skylife 모바일 요금제
-    <span style="font-size:16px;font-weight:600;color:var(--text-muted);margin-left:8px;">(2026년 3월)</span>
-  </h1>
+<div style="background:linear-gradient(160deg,#0d1a3a 0%,#0a0f1e 60%);padding:32px 24px 24px;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(0,119,255,.12) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:1400px;margin:0 auto;">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,196,244,.1);border:1px solid rgba(0,196,244,.3);color:var(--accent);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:.06em;">
+      <span style="font-size:8px;animation:blink 1.4s infinite">●</span> 2026년 3월 기준
+    </div>
+    <h1 style="font-size:clamp(20px,3.5vw,32px);font-weight:900;line-height:1.2;margin-bottom:8px;background:linear-gradient(135deg,#e8edf5 30%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+      스카이라이프 모바일 전체 요금제
+    </h1>
+    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">LTE · 5G 전 요금제 수록 — 대리점 판매용 내부 자료</p>
+  </div>
 </div>
 <div class="controls-row1">
   <div class="search-wrap">
