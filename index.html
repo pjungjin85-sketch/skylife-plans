@@ -566,7 +566,7 @@ function buildTable(plans) {
       <td><span class="price ${pc}">${p.price.toLocaleString()}원</span></td>
       <td class="col-net">${netBadge}</td>
       <td><span class="spec-chip">${voiceDisplay}</span><br><span class="spec-chip">문자 ${p.sms}</span></td>
-      <td><span class="spec-chip">${p.data}</span>${p.qos && p.qos!=='-' ? `<span class="spec-chip" style="cursor:pointer;border-color:var(--red-border);color:var(--red);" onclick="openQosModal('${p.qos}')">↓${p.qos}</span>` : ''}</td>
+      <td><span class="spec-chip">${p.data}</span>${p.qos && p.qos!=='-' ? `<span class="spec-chip" style="cursor:pointer;border-color:var(--red-border);color:var(--red);" onclick="openQosModal('${p.qos}')">${p.qos}</span>` : ''}</td>
       <td>${p.benefit ? `<span class="benefit-link" onclick="openBenefitModal('${p.benefit.replace(/'/g, "\\'")}')">🎁 ${p.benefit}</span>` : '<span style="color:var(--light)">-</span>'}</td>
     </tr>`;
   }).join('');
