@@ -202,13 +202,10 @@ tr:hover td{background:var(--red-light);}
 
   .plan-name{font-size:13px;}
   .plan-code{font-size:10px;margin-top:3px;word-break:break-all;}
-  .benefit-link{max-width:none;font-size:12px;word-break:break-all;}
   .spec-chip{font-size:11px;}
   .cat-section{margin-bottom:20px;}
 
-  /* 모달 */
-  .modal-overlay{padding:12px;}
-  .modal-box{max-width:100%;}
+  .benefit-link{display:none;}
 }
 
 /* ── 소형폰 (≤480px) ── */
@@ -226,25 +223,43 @@ tr:hover td{background:var(--red-light);}
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* BENEFIT POPUP */
-.benefit-link{color:var(--red);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;font-size:11px;line-height:1.5;display:inline-block;max-width:220px;}
-.benefit-link:hover{color:var(--red2);}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center;padding:20px;}
-.modal-overlay.open{display:flex;}
-.modal-box{background:#fff;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,.2);max-width:420px;width:100%;overflow:hidden;animation:modalIn .18s ease;}
-@keyframes modalIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
-.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--black);color:#fff;}
-.modal-header-title{font-size:14px;font-weight:700;}
-.modal-close{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;padding:0 4px;}
-.modal-close:hover{color:#ccc;}
-.modal-body{padding:20px;}
-.modal-benefit-name{font-size:18px;font-weight:900;color:var(--red);margin-bottom:4px;}
-.modal-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:var(--red-light);color:var(--red);border:1px solid var(--red-border);margin-bottom:14px;}
-.modal-section{margin-bottom:14px;}
-.modal-section-title{font-size:11px;font-weight:700;color:var(--mid);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;}
-.modal-row{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);margin-bottom:5px;line-height:1.5;}
-.modal-row-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
-.modal-note{font-size:11px;color:var(--mid);border-top:1px solid var(--border);margin-top:14px;padding-top:12px;line-height:1.6;}
+/* ── PLAN DETAIL MODAL (addons 스타일) ── */
+.plan-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;}
+.plan-modal-overlay.open{opacity:1;pointer-events:all;}
+.plan-modal{background:var(--bg);border-radius:14px;width:100%;max-width:580px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2);transform:translateY(20px);transition:transform .25s;}
+.plan-modal-overlay.open .plan-modal{transform:translateY(0);}
+.pm-top{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);padding:18px 20px 14px;z-index:2;border-radius:14px 14px 0 0;}
+.pm-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.pm-name{font-size:17px;font-weight:700;color:var(--black);line-height:1.35;flex:1;}
+.pm-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--mid);padding:0 4px;line-height:1;flex-shrink:0;}
+.pm-close:hover{color:var(--dark);}
+.pm-price-row{margin-top:10px;}
+.pm-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
+.pm-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;}
+.pm-tag-lte{background:rgba(16,185,129,.1);color:#059669;border:1px solid rgba(16,185,129,.2);}
+.pm-tag-5g{background:rgba(124,58,237,.1);color:#7c3aed;border:1px solid rgba(124,58,237,.2);}
+.pm-tag-sky{background:#fef3c7;color:#d97706;border:1px solid #fde68a;}
+.pm-tag-cat{background:var(--bg2);color:var(--mid);border:1px solid var(--border);}
+.pm-body{padding:20px;}
+.pm-section{margin-bottom:22px;}
+.pm-section:last-child{margin-bottom:0;}
+.pm-section-title{font-size:11px;font-weight:700;color:var(--red);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.pm-section-title::after{content:'';flex:1;height:1px;background:var(--red-border);}
+.pm-info-grid{display:grid;grid-template-columns:auto 1fr;gap:7px 14px;font-size:13px;}
+.pm-info-label{color:var(--mid);font-weight:600;white-space:nowrap;}
+.pm-info-val{color:var(--dark);line-height:1.55;}
+.pm-feature-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--dark);line-height:1.55;margin-bottom:6px;}
+.pm-feature-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+.pm-benefit-name{font-size:16px;font-weight:900;color:var(--red);margin-bottom:4px;}
+.pm-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:var(--red-light);color:var(--red);border:1px solid var(--red-border);margin-bottom:10px;}
+.pm-qos-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-top:8px;}
+.pm-warn-box{background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.2);border-radius:8px;padding:12px 14px;}
+.pm-note{font-size:11px;color:var(--mid);border-top:1px solid var(--border);margin-top:10px;padding-top:10px;line-height:1.6;}
+.plan-row{cursor:pointer;}
+@media(max-width:767px){
+  .plan-modal-overlay{align-items:flex-end;padding:0;}
+  .plan-modal{border-radius:14px 14px 0 0;max-height:92vh;}
+}
 </style>
 </head>
 <body>
@@ -344,14 +359,18 @@ tr:hover td{background:var(--red-light);}
 
 <main id="mainContent"></main>
 
-<!-- 제휴혜택 팝업 -->
-<div class="modal-overlay" id="benefitModal" onclick="closeBenefitModal(event)">
-  <div class="modal-box">
-    <div class="modal-header">
-      <span class="modal-header-title">🎁 제휴혜택 상세</span>
-      <button class="modal-close" onclick="closeBenefitModal()">✕</button>
+<!-- 요금제 상세 팝업 -->
+<div class="plan-modal-overlay" id="planModal" onclick="closePlanModal(event)">
+  <div class="plan-modal" id="planModalBox">
+    <div class="pm-top">
+      <div class="pm-top-row">
+        <div class="pm-name" id="pmName"></div>
+        <button class="pm-close" onclick="closePlanModal()">✕</button>
+      </div>
+      <div class="pm-price-row" id="pmPrice"></div>
+      <div class="pm-tags" id="pmTags"></div>
     </div>
-    <div class="modal-body" id="benefitModalBody"></div>
+    <div class="pm-body" id="pmBody"></div>
   </div>
 </div>
 
@@ -656,10 +675,14 @@ function buildTable(plans) {
       ? '<span class="cat-network net-5g">5G</span>'
       : '<span class="cat-network net-lte">LTE</span>';
     const skyBadge = p.sky ? '<span class="sky-badge">SKY</span>' : '';
-    const voiceDisplay = p.video && p.video !== '-'
-      ? `${p.voice} <span style="color:var(--light);font-size:10px">(영상 ${p.video})</span>`
-      : p.voice;
-    return `<tr>
+    const voiceDisplay = p.voice !== '-' ? p.voice : '-';
+    const dataQos = p.qos && p.qos !== '-'
+      ? `<span class="spec-chip">${p.data}</span><span class="spec-chip" style="border-color:var(--red-border);color:var(--red);">${p.qos}</span>`
+      : `<span class="spec-chip">${p.data}</span>`;
+    const benefitCell = p.benefit
+      ? `<span style="font-size:11px;color:var(--red);line-height:1.5;">🎁 ${p.benefit}</span>`
+      : `<span style="color:var(--light)">-</span>`;
+    return `<tr class="plan-row" onclick="openPlanModal('${p.code}')">
       <td data-label="">
         <div class="plan-name">${p.name}${skyBadge}<span class="card-net-badge">${netBadge}</span></div>
         <div class="plan-code">${p.code}</div>
@@ -667,14 +690,14 @@ function buildTable(plans) {
       <td data-label="청구액"><span class="price ${pc}">${p.price.toLocaleString()}원</span></td>
       <td class="col-net" data-label="통신망">${netBadge}</td>
       <td data-label="음성/문자"><span class="spec-chip">${voiceDisplay}</span> <span class="spec-chip">문자 ${p.sms}</span></td>
-      <td data-label="데이터/QoS"><span class="spec-chip">${p.data}</span>${p.qos && p.qos!=='-' ? `<span class="spec-chip" style="cursor:pointer;border-color:var(--red-border);color:var(--red);" onclick="openQosModal('${p.qos}')">${p.qos}</span>` : ''}</td>
-      <td data-label="제휴혜택">${p.benefit ? `<span class="benefit-link" onclick="openBenefitModal('${p.benefit.replace(/'/g, "\\'")}')">🎁 ${p.benefit}</span>` : '<span style="color:var(--light)">-</span>'}</td>
+      <td data-label="데이터/QoS">${dataQos}</td>
+      <td data-label="제휴혜택">${benefitCell}</td>
     </tr>`;
   }).join('');
   return `<div class="plan-table-wrap">
     <table>
       <thead><tr>
-        <th>상품명</th>
+        <th>요금제명 <span style="font-size:9px;font-weight:400;opacity:.7">클릭 시 상세보기</span></th>
         <th>청구액(VAT포함)</th>
         <th class="col-net">통신망</th>
         <th>음성 / 문자</th>
@@ -774,28 +797,6 @@ const QOS_DETAIL = {
     note: '* 데이터 소진 후 제한 속도 / 일반 LTE의 일부 수준이나 고사양 서비스도 이용 가능'
   },
 };
-
-function openQosModal(qos) {
-  const detail = QOS_DETAIL[qos];
-  const body = document.getElementById('benefitModalBody');
-  if (!detail) {
-    body.innerHTML = `<div class="modal-benefit-name">${qos}</div><p style="font-size:13px;color:var(--mid);margin-top:8px">상세 정보를 준비 중입니다.</p>`;
-  } else {
-    const rows = detail.items.map(item =>
-      `<div class="modal-row"><span class="modal-row-icon">${item.icon}</span><span>${item.text}</span></div>`
-    ).join('');
-    body.innerHTML = `
-      <div class="modal-benefit-name">📶 ${detail.label}</div>
-      <div class="modal-badge" style="background:${detail.gradeColor}20;color:${detail.gradeColor};border-color:${detail.gradeColor}40">${detail.grade} — 데이터 소진 후 속도</div>
-      <div class="modal-section">
-        <div class="modal-section-title">서비스별 이용 가능 여부</div>
-        ${rows}
-      </div>
-      ${detail.note ? `<div class="modal-note">${detail.note}</div>` : ''}
-    `;
-  }
-  document.getElementById('benefitModal').classList.add('open');
-}
 
 const BENEFIT_DETAIL = {
   'CU할인(20%, 월최대5천원)': {
@@ -966,33 +967,182 @@ const BENEFIT_DETAIL = {
     ],
     note: '* 전용 앱 설치 필요 / 보호자·피보호자 모두 스카이라이프 회원 등록 권장'
   },
+  '배달의민족 포인트': {
+    icon: '🍔',
+    name: '배달의민족 포인트',
+    badge: '배달 할인',
+    items: [
+      { icon: '💰', text: '매월 배달의민족 포인트 자동 지급' },
+      { icon: '🛵', text: '배달의민족 앱 주문 시 포인트 사용 가능' },
+      { icon: '🍕', text: '치킨·피자·중식 등 전 카테고리 사용 가능' },
+      { icon: '🔄', text: '요금제 유지 기간 동안 매월 지급' },
+    ],
+    note: '* 배달의민족 앱 계정 연동 필요 / 포인트 유효기간 내 미사용 시 소멸'
+  },
+  '기프티쇼 5천P': {
+    icon: '🎫',
+    name: '기프티쇼 포인트',
+    badge: '매월 5,000P',
+    items: [
+      { icon: '💰', text: '매월 기프티쇼 포인트 5,000P 자동 적립' },
+      { icon: '🎁', text: '기프티쇼 앱에서 기프티콘·모바일 상품권 구매 시 사용' },
+      { icon: '🛒', text: '커피·편의점·외식·쇼핑 등 다양한 브랜드 이용 가능' },
+      { icon: '🔄', text: '요금제 유지 기간 동안 매월 지급' },
+    ],
+    note: '* 기프티쇼 앱 계정 연동 필요 / 포인트 유효기간 내 미사용 시 소멸'
+  },
 };
 
-function openBenefitModal(benefit) {
-  const detail = BENEFIT_DETAIL[benefit];
-  const body = document.getElementById('benefitModalBody');
-  if (!detail) {
-    body.innerHTML = `<div class="modal-benefit-name">${benefit}</div><p style="font-size:13px;color:var(--mid);margin-top:8px">상세 정보를 준비 중입니다.</p>`;
-  } else {
-    const rows = detail.items.map(item =>
-      `<div class="modal-row"><span class="modal-row-icon">${item.icon}</span><span>${item.text}</span></div>`
+// ── 요금제 상세 모달 ──
+function openPlanModal(code) {
+  const p = PLANS.find(pl => pl.code === code);
+  if (!p) return;
+
+  document.getElementById('pmName').textContent = p.name;
+
+  const pc = p.price <= 10000 ? '#059669' : p.price <= 30000 ? '#d97706' : 'var(--red)';
+  document.getElementById('pmPrice').innerHTML =
+    `<span style="font-size:24px;font-weight:900;color:${pc}">${p.price.toLocaleString()}원</span>`+
+    `<span style="font-size:12px;color:var(--mid);margin-left:6px">VAT 포함</span>`;
+
+  const netTag = p.net === '5G'
+    ? '<span class="pm-tag pm-tag-5g">5G</span>'
+    : '<span class="pm-tag pm-tag-lte">LTE</span>';
+  const skyTag = p.sky ? '<span class="pm-tag pm-tag-sky">★ 현장전용</span>' : '';
+  document.getElementById('pmTags').innerHTML = netTag + skyTag + `<span class="pm-tag pm-tag-cat">${p.cat}</span>`;
+
+  // 기본 제공 정보
+  const voiceRow = p.voice !== '-'
+    ? `<span class="pm-info-label">📞 음성</span><span class="pm-info-val">${p.voice}${p.video && p.video!=='-' ? ` <span style="font-size:11px;color:var(--mid)">(영상통화 ${p.video})</span>` : ''}</span>` : '';
+  const smsRow = p.sms !== '-'
+    ? `<span class="pm-info-label">✉️ 문자</span><span class="pm-info-val">${p.sms}</span>` : '';
+  const qosRow = p.qos && p.qos !== '-'
+    ? `<span class="pm-info-label">⚡ QoS</span><span class="pm-info-val">${p.qos} <span style="font-size:11px;color:var(--mid)">(데이터 소진 후)</span></span>` : '';
+
+  // QoS 상세 박스
+  let qosBox = '';
+  if (p.qos && p.qos !== '-' && QOS_DETAIL[p.qos]) {
+    const qd = QOS_DETAIL[p.qos];
+    const qItems = qd.items.map(i =>
+      `<div class="pm-feature-item"><span class="pm-feature-icon">${i.icon}</span><span>${i.text}</span></div>`
     ).join('');
-    body.innerHTML = `
-      <div class="modal-benefit-name">${detail.icon} ${detail.name}</div>
-      <div class="modal-badge">${detail.badge}</div>
-      <div class="modal-section">
-        <div class="modal-section-title">혜택 내용</div>
-        ${rows}
-      </div>
-      ${detail.note ? `<div class="modal-note">${detail.note}</div>` : ''}
-    `;
+    qosBox = `<div class="pm-qos-box">
+      <div style="font-size:12px;font-weight:700;color:${qd.gradeColor};margin-bottom:8px">📶 ${qd.label} — ${qd.grade}</div>
+      ${qItems}
+      <div style="font-size:10px;color:var(--mid);margin-top:6px;line-height:1.5">${qd.note}</div>
+    </div>`;
   }
-  document.getElementById('benefitModal').classList.add('open');
+
+  // 제휴혜택 섹션
+  let benefitSection = '';
+  if (p.benefit) {
+    const bd = BENEFIT_DETAIL[p.benefit];
+    if (bd) {
+      const bItems = bd.items.map(i =>
+        `<div class="pm-feature-item"><span class="pm-feature-icon">${i.icon}</span><span>${i.text}</span></div>`
+      ).join('');
+      benefitSection = `<div class="pm-section">
+        <div class="pm-section-title">제휴혜택</div>
+        <div class="pm-benefit-name">${bd.icon} ${bd.name}</div>
+        <div class="pm-badge">${bd.badge}</div>
+        ${bItems}
+        ${bd.note ? `<div class="pm-note">${bd.note}</div>` : ''}
+      </div>`;
+    } else {
+      benefitSection = `<div class="pm-section">
+        <div class="pm-section-title">제휴혜택</div>
+        <div class="pm-feature-item"><span class="pm-feature-icon">🎁</span><span>${p.benefit}</span></div>
+      </div>`;
+    }
+  }
+
+  // 주의사항
+  const notes = buildPlanNotes(p);
+  const noteItems = notes.map(n =>
+    `<div class="pm-feature-item" style="margin-bottom:5px"><span style="color:#b45309;font-size:13px;flex-shrink:0">·</span><span style="font-size:12px;color:#78350f;line-height:1.6">${n}</span></div>`
+  ).join('');
+
+  document.getElementById('pmBody').innerHTML = `
+    <div class="pm-section">
+      <div class="pm-section-title">상품 정보</div>
+      <div class="pm-info-grid">
+        <span class="pm-info-label">상품코드</span><span class="pm-info-val" style="font-family:monospace;font-size:12px">${p.code}</span>
+        <span class="pm-info-label">통신망</span><span class="pm-info-val">${p.net}</span>
+        <span class="pm-info-label">카테고리</span><span class="pm-info-val">${p.cat}</span>
+        <span class="pm-info-label">구분</span><span class="pm-info-val">${p.sky ? '대리점 현장전용(SKY)' : '온·오프라인 공통'}</span>
+      </div>
+    </div>
+    <div class="pm-section">
+      <div class="pm-section-title">기본 제공</div>
+      <div class="pm-info-grid">
+        ${voiceRow}
+        ${smsRow}
+        <span class="pm-info-label">📶 데이터</span><span class="pm-info-val">${p.data}</span>
+        ${qosRow}
+      </div>
+      ${qosBox}
+    </div>
+    ${benefitSection}
+    <div class="pm-section">
+      <div class="pm-section-title">주의사항</div>
+      <div class="pm-warn-box">${noteItems}</div>
+    </div>
+  `;
+
+  document.getElementById('planModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-function closeBenefitModal(e) {
-  if (!e || e.target === document.getElementById('benefitModal')) {
-    document.getElementById('benefitModal').classList.remove('open');
+function buildPlanNotes(p) {
+  const notes = [
+    '표시 금액은 부가세(VAT) 포함 금액입니다.',
+    '선택약정 할인 25% 적용 시 월 요금이 달라질 수 있습니다. (24개월 약정 기준)',
+    '신규 가입·번호이동·기기변경 모두 가능합니다.',
+  ];
+  if (p.qos && p.qos !== '-') {
+    notes.push(`기본 데이터(${p.data}) 소진 후 ${p.qos} 속도로 계속 이용 가능합니다.`);
+    notes.push('데이터 소진 후에도 음성통화·문자(SMS)는 정상 이용됩니다.');
+  } else if (p.qos === '-' && p.data !== '-') {
+    notes.push('기본 데이터 소진 후 추가 사용이 불가하며, 데이터 추가 구매(충전)가 필요합니다.');
+  }
+  if (p.sky) {
+    notes.push('현장전용(SKY) 상품으로 대리점 방문 개통만 가능합니다.');
+    notes.push('온라인 다이렉트샵 및 타 채널에서는 가입이 불가합니다.');
+  }
+  if (p.cat === '주니어' || p.cat.includes('주니어')) {
+    notes.push('만 18세 이하 청소년 전용 요금제입니다. 가입 시 법정대리인 동의가 필요합니다.');
+  }
+  if (p.cat === '시니어') {
+    notes.push('만 65세 이상 고객 전용 요금제입니다. 가입 시 신분증 확인이 필요합니다.');
+  }
+  if (p.cat === '복지전용') {
+    notes.push('장애인·국가유공자 등 복지 할인 대상자 전용 요금제입니다. 관련 증빙서류 제출이 필요합니다.');
+    notes.push('복지 할인은 중복 적용이 제한될 수 있습니다.');
+  }
+  if (p.cat === '스마트기기') {
+    notes.push('태블릿·모바일 라우터 등 데이터 전용 기기 전용 요금제로, 음성통화·문자가 제공되지 않습니다.');
+  }
+  if (p.cat === '웨어러블') {
+    notes.push('스마트워치 등 웨어러블 전용 요금제입니다. 단말기와 결합 사용을 권장합니다.');
+  }
+  if (p.cat.includes('가족긴급보호')) {
+    notes.push('가족긴급보호 서비스 이용 시 전용 앱 설치 및 보호자 계정 연동이 필요합니다.');
+  }
+  if (p.benefit) {
+    notes.push('제휴혜택 이용 시 별도 앱 설치 및 스카이라이프 계정 연동이 필요합니다.');
+    notes.push('제휴혜택은 해당 요금제 유지 기간 동안 제공되며, 요금제 해지 또는 변경 시 자동 종료됩니다.');
+    notes.push('제휴혜택의 세부 내용은 제휴사 정책에 따라 변경될 수 있습니다.');
+  }
+  notes.push('요금제 변경은 매월 1회에 한해 고객센터(1588-3002) 또는 셀프케어(스카이라이프 앱)에서 신청 가능합니다.');
+  notes.push('단말기 할부금은 요금제와 별도로 청구됩니다.');
+  notes.push('본 자료는 2026년 3월 기준이며, 요금·혜택은 사전 고지 후 변경될 수 있습니다.');
+  return notes;
+}
+
+function closePlanModal(e) {
+  if (!e || e.target === document.getElementById('planModal')) {
+    document.getElementById('planModal').classList.remove('open');
+    document.body.style.overflow = '';
   }
 }
 
