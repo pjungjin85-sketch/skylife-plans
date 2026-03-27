@@ -137,10 +137,9 @@ tr:hover td{background:var(--red-light);}
   .benefit-select{width:100%;min-width:0;box-sizing:border-box;}
   .reset-filters{width:100%;text-align:center;padding:9px;}
 
-  /* row2 정렬버튼: 가로 스크롤 */
-  .controls-row2{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;}
-  .controls-row2::-webkit-scrollbar{display:none;}
-  .sort-btn{flex-shrink:0;white-space:nowrap;}
+  /* row2 정렬버튼: 줄바꿈 */
+  .controls-row2{flex-wrap:wrap;overflow-x:visible;padding-bottom:0;}
+  .sort-btn{flex-shrink:1;white-space:nowrap;}
   .row2-label{flex-shrink:0;}
 
   /* Stats / Legend */
