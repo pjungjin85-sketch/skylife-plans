@@ -117,23 +117,27 @@ tr:hover td{background:var(--red-light);}
 
 /* ── MOBILE (≤767px) ── */
 @media(max-width:767px){
-  /* Header */
-  .back-btn{font-size:12px;padding:5px 10px;}
-  .header-title{font-size:13px;}
+  /* 헤더 */
+  .back-btn{font-size:12px;padding:5px 10px;flex-shrink:0;}
+  .logo-badge{font-size:11px;padding:3px 8px;flex-shrink:0;white-space:nowrap;}
+  .header-title{font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .header-count{display:none;}
 
-  /* Controls: row1, row3 세로 쌓기 */
+  /* 컨트롤 row1, row3: 세로 쌓기 */
   .controls-row1,.controls-row3{flex-direction:column;align-items:stretch;}
-  .search-wrap{max-width:100%;}
+  .search-wrap{max-width:100%;min-width:0;}
   .filter-group{width:100%;}
   .filter-btn{flex:1;text-align:center;}
-  .filter-block{width:100%;}
-  .range-wrap{width:100%;}
-  .range-track{width:auto;flex:1;}
-  .range-val{min-width:80px;text-align:right;}
+
+  /* filter-block: 레이블 + 컨트롤 세로 배치 */
+  .filter-block{flex-direction:column;align-items:stretch;gap:6px;width:100%;}
+  .range-wrap{width:100%;display:flex;align-items:center;gap:8px;}
+  .range-track{flex:1;width:0;} /* width:0 + flex:1 = 고정px 해제 */
+  .range-val{flex-shrink:0;min-width:72px;text-align:right;}
   .benefit-select{width:100%;min-width:0;box-sizing:border-box;}
   .reset-filters{width:100%;text-align:center;padding:9px;}
 
-  /* row2(정렬버튼): 가로 스크롤 */
+  /* row2 정렬버튼: 가로 스크롤 */
   .controls-row2{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;}
   .controls-row2::-webkit-scrollbar{display:none;}
   .sort-btn{flex-shrink:0;white-space:nowrap;}
@@ -145,7 +149,8 @@ tr:hover td{background:var(--red-light);}
 
   /* ── 테이블 → 카드 레이아웃 ── */
   .plan-table-wrap{border:none;box-shadow:none;overflow:visible;background:transparent;}
-  table,thead,tbody,th,td,tr{display:block;}
+  table{display:block;min-width:0;width:100%;} /* min-width:500px 해제 */
+  thead,tbody,th,td,tr{display:block;}
   thead tr{position:absolute;top:-9999px;left:-9999px;visibility:hidden;}
   tr{
     background:#fff;
@@ -165,6 +170,9 @@ tr:hover td{background:var(--red-light);}
     align-items:flex-start;
     gap:10px;
     font-size:12px;
+    min-width:0; /* flex 자식 overflow 방지 */
+    overflow-wrap:break-word;
+    word-break:break-all;
   }
   td:last-child{border-bottom:none;}
   td::before{
@@ -176,37 +184,40 @@ tr:hover td{background:var(--red-light);}
     flex-shrink:0;
     padding-top:2px;
     letter-spacing:.03em;
+    word-break:keep-all; /* 라벨 텍스트는 줄바꿈 안 함 */
   }
-  /* 카드 헤더 셀(요금제명) */
+  /* 카드 헤더 셀 (요금제명) */
   td[data-label=""]{
     background:var(--bg2);
     display:block;
     padding:10px 14px;
     border-bottom:2px solid var(--border);
+    overflow-wrap:break-word;
+    word-break:break-all;
   }
   td[data-label=""]::before{display:none;}
 
-  /* 모바일: 통신망 컬럼 숨김(카드 헤더에 표시) */
+  /* 통신망 컬럼 숨김 → 카드 헤더에 뱃지로 표시 */
   .col-net{display:none;}
   .card-net-badge{display:inline;}
 
   .plan-name{font-size:13px;}
-  .plan-code{font-size:10px;margin-top:3px;}
-  .benefit-link{max-width:none;font-size:12px;}
+  .plan-code{font-size:10px;margin-top:3px;word-break:break-all;}
+  .benefit-link{max-width:none;font-size:12px;word-break:break-all;}
   .spec-chip{font-size:11px;}
   .cat-section{margin-bottom:20px;}
 
-  /* Modal */
+  /* 모달 */
   .modal-overlay{padding:12px;}
   .modal-box{max-width:100%;}
 }
 
 /* ── 소형폰 (≤480px) ── */
 @media(max-width:480px){
-  .back-btn{font-size:11px;padding:4px 8px;gap:4px;}
-  .logo-badge{font-size:11px;padding:3px 8px;}
+  .back-text{display:none;} /* "← 개통 가이드로 돌아가기" → "←" 만 표시 */
+  .back-btn{padding:5px 10px;}
+  .logo-badge{display:none;} /* 공간 확보 */
   .header-title{font-size:12px;}
-  .header-count{display:none;}
   main{padding:0 12px 40px;}
   .controls-row1,.controls-row2,.controls-row3{padding-left:12px;padding-right:12px;}
   .stats-bar,.legend{padding-left:12px;padding-right:12px;}
@@ -241,7 +252,7 @@ tr:hover td{background:var(--red-light);}
 
 <header>
   <div class="header-inner">
-    <a href="mobile_sales_guide.html" class="back-btn">← 개통 가이드로 돌아가기</a>
+    <a href="mobile_sales_guide.html" class="back-btn">← <span class="back-text">개통 가이드로 돌아가기</span></a>
     <div class="logo-badge">SKY Mobile</div>
     <div class="header-title">전체 요금제 리스트</div>
     <div class="header-count" id="visible-count">115개 요금제</div>
