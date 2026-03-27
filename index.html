@@ -15,7 +15,9 @@ header{background:var(--bg);border-top:3px solid var(--red);border-bottom:1px so
 .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:56px;gap:12px;}
 .back-btn{display:flex;align-items:center;gap:6px;color:var(--red);font-size:13px;font-weight:600;text-decoration:none;padding:6px 12px;border-radius:4px;border:1px solid var(--red-border);background:var(--red-light);transition:all .2s;cursor:pointer;}
 .back-btn:hover{background:rgba(230,0,18,.12);}
-.logo-badge{background:var(--red);color:#fff;font-weight:900;font-size:12px;padding:4px 10px;border-radius:4px;white-space:nowrap;}
+.logo-text{font-size:18px;font-weight:900;color:var(--black);letter-spacing:-.02em;white-space:nowrap;}
+.logo-text span{color:var(--red);}
+.header-badge{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.04em;white-space:nowrap;}
 .header-title{font-size:15px;font-weight:700;color:var(--dark);}
 .header-count{font-size:12px;color:var(--light);margin-left:auto;white-space:nowrap;}
 
@@ -119,7 +121,8 @@ tr:hover td{background:var(--red-light);}
 @media(max-width:767px){
   /* 헤더 */
   .back-btn{font-size:12px;padding:5px 10px;flex-shrink:0;}
-  .logo-badge{font-size:11px;padding:3px 8px;flex-shrink:0;white-space:nowrap;}
+  .logo-text{font-size:15px;flex-shrink:0;}
+  .header-badge{font-size:9px;padding:2px 7px;}
   .header-title{font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .header-count{display:none;}
 
@@ -212,7 +215,8 @@ tr:hover td{background:var(--red-light);}
 @media(max-width:480px){
   .back-text{display:none;} /* "← 개통 가이드로 돌아가기" → "←" 만 표시 */
   .back-btn{padding:5px 10px;}
-  .logo-badge{display:none;} /* 공간 확보 */
+  .logo-text{font-size:13px;}
+  .header-badge{display:none;}
   .header-title{font-size:12px;}
   main{padding:0 12px 40px;}
   .controls-row1,.controls-row2,.controls-row3{padding-left:12px;padding-right:12px;}
@@ -266,7 +270,8 @@ tr:hover td{background:var(--red-light);}
 
 <header>
   <div class="header-inner">
-    <div class="logo-badge">SKY Mobile</div>
+    <div class="logo-text">kt <span>skylife</span></div>
+    <span class="header-badge">MOBILE</span>
     <div class="header-title">전체 요금제 리스트</div>
     <div class="header-count" id="visible-count">115개 요금제</div>
   </div>
