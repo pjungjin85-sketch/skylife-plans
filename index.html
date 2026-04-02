@@ -624,13 +624,14 @@ function resetFilters() {
 
 // ── 메인 필터 적용 ──
 function applyFilters() {
-  const q = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+  const q = (document.getElementById('searchInput')?.value || '').trim().toLowerCase().replace(/\s+/g, '');
   const benefitVal = (document.getElementById('benefitSelect')?.value || '').toLowerCase();
+  const norm = s => s.toLowerCase().replace(/\s+/g, '');
   let filtered = PLANS.filter(p => {
     if (filterNet !== 'all' && p.net !== filterNet) return false;
     if (p.price < priceMin || p.price > priceMax) return false;
     if (benefitVal && !p.benefit.toLowerCase().includes(benefitVal)) return false;
-    if (q && !p.name.toLowerCase().includes(q) && !p.benefit.toLowerCase().includes(q) && !p.cat.toLowerCase().includes(q)) return false;
+    if (q && !norm(p.name).includes(q) && !norm(p.benefit).includes(q) && !norm(p.cat).includes(q)) return false;
     return true;
   });
   if (currentSort) filtered = sortPlans(filtered, currentSort);
