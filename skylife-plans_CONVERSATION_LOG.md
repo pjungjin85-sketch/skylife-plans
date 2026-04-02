@@ -2,6 +2,39 @@
 
 ---
 
+## 2026-04-02 — Vercel 마이그레이션 + 캐시 문제 해결 (전 프로젝트)
+
+### 작업 내용
+
+**1. 캐시 방지 메타태그 추가 (5개 프로젝트 전체)**
+- `<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">` 추가
+- 대상: skylife-plans, skylife-addons, skylife-commission-calculator, skylife-mobile-faq, skylife-guide
+
+**2. Vercel 마이그레이션 (GitHub Pages → Vercel)**
+- 배경: GitHub Pages 캐시 강함 + 배포 지연 문제로 Vercel로 전환
+- 각 프로젝트에 `vercel.json` 추가 (HTTP 헤더 레벨 캐시 완전 차단)
+- skylife-guide는 `index.html` 없어서 루트 → `mobile_sales_guide.html` 리다이렉트 설정
+
+**3. 새 Vercel URL**
+| 프로젝트 | 구 URL (GitHub Pages) | 새 URL (Vercel) |
+|---|---|---|
+| skylife-plans | pjungjin85-sketch.github.io/skylife-plans | skylife-plans-bec2.vercel.app |
+| skylife-addons | pjungjin85-sketch.github.io/skylife-addons | skylife-addons-ejol.vercel.app |
+| skylife (수수료계산기) | pjungjin85-sketch.github.io/skylife | skylife-1s8i.vercel.app |
+| skylife-mobile-faq | pjungjin85-sketch.github.io/skylife-mobile-faq | skylife-mobile-faq-um3h.vercel.app |
+| skylife-guide | pjungjin85-sketch.github.io/skylife-guide/mobile_sales_guide.html | skylife-guide-vz8q.vercel.app |
+
+**4. skylife-guide 아웃링크 URL 업데이트**
+- 페이지 내 4개 링크를 GitHub Pages → Vercel URL로 교체
+
+### 커밋
+- 각 프로젝트: `fix: 캐시 방지 메타태그 추가`
+- 각 프로젝트: `feat: vercel.json 추가 — 캐시 완전 차단`
+- skylife-guide: `fix: vercel.json 루트 → mobile_sales_guide.html 리다이렉트 추가`
+- skylife-guide: `fix: 아웃링크 GitHub Pages → Vercel URL로 변경`
+
+---
+
 ## 2026-04-02 — 4월 요금제 데이터 업데이트 + 결합혜택 정보 추가
 
 ### 작업 내용
