@@ -227,6 +227,18 @@ tr:hover td{background:var(--red-light);}
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
+/* ── 일별 공지 팝업 ── */
+.notice-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;}
+.notice-overlay.open{opacity:1;pointer-events:all;}
+.notice-box{background:var(--bg);border-radius:14px;width:100%;max-width:480px;box-shadow:0 20px 60px rgba(0,0,0,.25);transform:translateY(20px);transition:transform .25s;overflow:hidden;}
+.notice-overlay.open .notice-box{transform:translateY(0);}
+.notice-head{background:var(--red);padding:18px 20px;display:flex;align-items:center;gap:10px;}
+.notice-head-icon{font-size:20px;}
+.notice-head-title{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.01em;}
+.notice-body{padding:24px 20px;}
+.notice-content{font-size:14px;color:var(--dark);line-height:1.7;white-space:pre-wrap;}
+.notice-foot{padding:12px 20px 20px;text-align:center;font-size:11px;color:var(--light);}
+
 /* ── PLAN DETAIL MODAL (addons 스타일) ── */
 .plan-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;}
 .plan-modal-overlay.open{opacity:1;pointer-events:all;}
@@ -1156,5 +1168,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <footer style="text-align:center;padding:24px 20px;font-size:11px;color:var(--light);border-top:1px solid var(--border);background:var(--bg);">Created by 박정진 &nbsp;|&nbsp; 스카이라이프 모바일 요금제 안내</footer>
+
+<!-- 일별 공지 팝업 -->
+<div class="notice-overlay" id="noticeOverlay" onclick="closeNotice()">
+  <div class="notice-box" onclick="event.stopPropagation()">
+    <div class="notice-head">
+      <span class="notice-head-icon">📢</span>
+      <span class="notice-head-title">중요 안내</span>
+    </div>
+    <div class="notice-body">
+      <div class="notice-content">중요 안내 사항 입력</div>
+    </div>
+    <div class="notice-foot">화면 아무 곳이나 클릭하면 닫힙니다</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const KEY = 'notice_closed_date';
+  const today = new Date().toISOString().slice(0,10);
+  if(localStorage.getItem(KEY) !== today){
+    document.getElementById('noticeOverlay').classList.add('open');
+  }
+})();
+function closeNotice(){
+  document.getElementById('noticeOverlay').classList.remove('open');
+  localStorage.setItem('notice_closed_date', new Date().toISOString().slice(0,10));
+}
+</script>
+
 </body>
 </html>
