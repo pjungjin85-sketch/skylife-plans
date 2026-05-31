@@ -303,7 +303,7 @@ tr:hover td{background:var(--red-light);}
   <div style="position:absolute;right:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(230,0,18,.06) 0%,transparent 70%);pointer-events:none;"></div>
   <div style="max-width:1400px;margin:0 auto;">
     <div style="display:inline-flex;align-items:center;gap:6px;background:var(--red-light);border:1px solid var(--red-border);color:var(--red);font-size:11px;font-weight:700;padding:4px 12px;border-radius:3px;margin-bottom:14px;letter-spacing:.04em;">
-      <span style="font-size:8px;animation:blink 1.4s infinite">●</span> 2026년 4월 기준
+      <span style="font-size:8px;animation:blink 1.4s infinite">●</span> <span id="baseMonthLabel">로딩 중</span>
     </div>
     <h1 style="font-size:clamp(20px,3.5vw,32px);font-weight:900;line-height:1.3;margin-bottom:8px;color:var(--black);">
       스카이라이프 모바일 <em style="color:var(--red);font-style:normal;">전체 요금제</em>
@@ -401,7 +401,8 @@ tr:hover td{background:var(--red-light);}
 
 <script>
 let PLANS = [];
-
+let BASE_MONTH_LABEL = '';
+let ACTIVE_MONTH_KEY = '';
 
 // ── 상태 변수 ──
 let filterNet = 'all';
@@ -1049,7 +1050,7 @@ function buildPlanNotes(p) {
     notes.push('제휴혜택의 세부 내용은 제휴사 정책에 따라 변경될 수 있습니다.');
   }
   notes.push('요금제 변경은 매월 1회에 한해 고객센터(1588-3002) 또는 셀프케어(스카이라이프 앱)에서 신청 가능합니다.');
-  notes.push('본 자료는 2026년 4월 기준이며, 요금·혜택은 사전 고지 후 변경될 수 있습니다.');
+  notes.push(`본 자료는 ${BASE_MONTH_LABEL} 기준이며, 요금·혜택은 사전 고지 후 변경될 수 있습니다.`);
   return notes;
 }
 
@@ -1063,12 +1064,31 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch('data/plans.json?t=' + Date.now())
     .then(r => r.json())
     .then(data => {
-      PLANS = data;
+      // 현재 월에 맞는 키 선택 (없으면 가장 최근 키로 폴백)
+      const now = new Date();
+      const currentKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+      const keys = Object.keys(data).sort();
+      ACTIVE_MONTH_KEY = keys.filter(k => k <= currentKey).pop() ?? keys[0];
+
+      PLANS = data[ACTIVE_MONTH_KEY];
+
+      // 기준월 라벨 생성
+      const [year, month] = ACTIVE_MONTH_KEY.split('-');
+      BASE_MONTH_LABEL = `${year}년 ${parseInt(month)}월`;
+      document.getElementById('baseMonthLabel').textContent = BASE_MONTH_LABEL + ' 기준';
+      document.getElementById('noticeContent').textContent = `${BASE_MONTH_LABEL} 요금제로 업데이트 되었습니다.`;
+
       document.getElementById('cnt-lte').textContent = PLANS.filter(p => p.net === 'LTE').length;
       document.getElementById('cnt-5g').textContent  = PLANS.filter(p => p.net === '5G').length;
       document.getElementById('cnt-sky').textContent = PLANS.filter(p => p.sky).length;
       updateRangeUI();
       applyFilters();
+
+      // 월이 바뀔 때만 공지 팝업 표시
+      const NOTICE_KEY = `notice_closed_${ACTIVE_MONTH_KEY}`;
+      if (!localStorage.getItem(NOTICE_KEY)) {
+        document.getElementById('noticeOverlay').classList.add('open');
+      }
     });
 });
 </script>
@@ -1082,23 +1102,18 @@ document.addEventListener('DOMContentLoaded', function() {
       <span class="notice-head-title">중요 안내</span>
     </div>
     <div class="notice-body">
-      <div class="notice-content">2026년 4월 요금제로 업데이트 되었습니다.</div>
+      <div class="notice-content" id="noticeContent">로딩 중...</div>
     </div>
     <div class="notice-foot">화면 아무 곳이나 클릭하면 닫힙니다</div>
   </div>
 </div>
 
 <script>
-(function(){
-  const KEY = 'notice_closed_date';
-  const today = new Date().toISOString().slice(0,10);
-  if(localStorage.getItem(KEY) !== today){
-    document.getElementById('noticeOverlay').classList.add('open');
-  }
-})();
 function closeNotice(){
   document.getElementById('noticeOverlay').classList.remove('open');
-  localStorage.setItem('notice_closed_date', new Date().toISOString().slice(0,10));
+  if (ACTIVE_MONTH_KEY) {
+    localStorage.setItem(`notice_closed_${ACTIVE_MONTH_KEY}`, '1');
+  }
 }
 </script>
 
