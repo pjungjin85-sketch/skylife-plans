@@ -409,7 +409,7 @@ let ACTIVE_MONTH_KEY = '';
 // ── 상태 변수 ──
 let filterNet = 'all';
 let currentSort = null;
-let priceMin = 0, priceMax = 49200;
+let priceMin = 0, priceMax = 49200, PRICE_CEILING = 49200;
 
 // ── 유틸: 스펙 → 숫자 ──
 function specToNum(val) {
@@ -452,10 +452,10 @@ function updateRangeUI() {
   const fill    = document.getElementById('rangeFill');
   const display = document.getElementById('rangeValDisplay');
   if (!fill || !display) return;
-  const pct = v => (v / 49200) * 100;
+  const pct = v => (v / PRICE_CEILING) * 100;
   fill.style.left  = pct(priceMin) + '%';
   fill.style.width = (pct(priceMax) - pct(priceMin)) + '%';
-  if (priceMin === 0 && priceMax === 49200) {
+  if (priceMin === 0 && priceMax === PRICE_CEILING) {
     display.textContent = '전체';
   } else {
     const fmt = v => v >= 10000 ? (v/10000).toFixed(1).replace('.0','') + '만원' : v.toLocaleString() + '원';
@@ -493,14 +493,14 @@ function setSort(key) {
 
 // ── 필터 초기화 ──
 function resetFilters() {
-  filterNet = 'all'; currentSort = null; priceMin = 0; priceMax = 49200;
+  filterNet = 'all'; currentSort = null; priceMin = 0; priceMax = PRICE_CEILING;
   const si = document.getElementById('searchInput');
   const rm = document.getElementById('rangeMin');
   const rx = document.getElementById('rangeMax');
   const bs = document.getElementById('benefitSelect');
   if (si) si.value = '';
   if (rm) rm.value = 0;
-  if (rx) rx.value = 49200;
+  if (rx) rx.value = PRICE_CEILING;
   if (bs) bs.value = '';
   document.querySelectorAll('#netFilter .filter-btn').forEach((b,i) => b.classList.toggle('active', i===0));
   ['Sky','Price','Voice','Sms','Data'].forEach(k => {
@@ -1091,6 +1091,10 @@ document.addEventListener('DOMContentLoaded', async function() {
       ACTIVE_MONTH_KEY = keys.filter(k => k <= currentKey).pop() ?? keys[0];
 
       PLANS = data[ACTIVE_MONTH_KEY];
+      PRICE_CEILING = Math.ceil(Math.max(...PLANS.map(p => p.price)) / 100) * 100;
+      priceMax = PRICE_CEILING;
+      ['rangeMin','rangeMax'].forEach(id => { const el = document.getElementById(id); if(el) el.max = PRICE_CEILING; });
+      const rxEl = document.getElementById('rangeMax'); if(rxEl) rxEl.value = PRICE_CEILING;
 
       // 기준월 라벨 생성
       const [year, month] = ACTIVE_MONTH_KEY.split('-');
