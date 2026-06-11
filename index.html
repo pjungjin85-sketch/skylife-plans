@@ -1062,10 +1062,12 @@ function closePlanModal() {
 }
 
 // ── 초기 실행 ──
-document.addEventListener('DOMContentLoaded', function() {
-  fetch('data/plans.json?t=' + Date.now())
-    .then(r => r.json())
-    .then(data => {
+document.addEventListener('DOMContentLoaded', async function() {
+  try {
+  const res = await fetch('data/plans.json?t=' + Date.now());
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  {
       // 현재 월에 맞는 키 선택 (없으면 가장 최근 키로 폴백)
       const now = new Date();
       const currentKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
@@ -1091,7 +1093,17 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!localStorage.getItem(NOTICE_KEY)) {
         document.getElementById('noticeOverlay').classList.add('open');
       }
-    });
+  }
+  } catch (err) {
+    document.getElementById('baseMonthLabel').textContent = '로딩 실패';
+    document.getElementById('mainContent').innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">⚠️</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">데이터를 불러오지 못했습니다</div>
+        <div style="font-size:12px;color:var(--light);margin-bottom:16px;">${err.message}</div>
+        <button onclick="location.reload()" style="background:var(--red);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">다시 시도</button>
+      </div>`;
+  }
 });
 </script>
 <footer style="text-align:center;padding:24px 20px;font-size:11px;color:var(--light);border-top:1px solid var(--border);background:var(--bg);">Created by 박정진 &nbsp;|&nbsp; 스카이라이프 모바일 요금제 안내</footer>
