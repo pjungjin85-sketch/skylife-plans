@@ -8,7 +8,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>스카이라이프 모바일 전체 요금제 — 대리점 판매용</title>
+<title>kt skylife 모바일 전체 요금제 — 대리점 판매용</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--red:#E60012;--red2:#CC0010;--red-light:#FFF5F5;--red-border:#FFCCCC;--black:#1A1A1A;--dark:#333333;--mid:#666666;--light:#999999;--bg:#FFFFFF;--bg2:#F7F7F7;--bg3:#FAFAFA;--border:#E8E8E8;--shadow:0 2px 12px rgba(0,0,0,0.08);--shadow-hover:0 6px 24px rgba(0,0,0,0.12);--accent:#E60012;--accent2:#CC0010;--surface:#FFFFFF;--surface2:#F7F7F7;--text:#1A1A1A;--text-muted:#666666;}
@@ -308,7 +308,7 @@ tr:hover td{background:var(--red-light);}
       <span style="font-size:8px;animation:blink 1.4s infinite">●</span> <span id="baseMonthLabel">로딩 중</span>
     </div>
     <h1 style="font-size:clamp(20px,3.5vw,32px);font-weight:900;line-height:1.3;margin-bottom:8px;color:var(--black);">
-      스카이라이프 모바일 <em style="color:var(--red);font-style:normal;">전체 요금제</em>
+      kt skylife 모바일 <em style="color:var(--red);font-style:normal;">전체 요금제</em>
     </h1>
     <p style="font-size:13px;color:var(--mid);line-height:1.7;max-width:600px;">LTE · 5G 전 요금제 수록 — 대리점 판매용 내부 자료</p>
     <div style="width:48px;height:3px;background:var(--red);margin-top:16px;border-radius:2px;"></div>
@@ -714,7 +714,7 @@ const BENEFIT_DETAIL = {
       { icon: '📱', text: '스마트폰·태블릿·PC 모든 기기 동시 이용 가능' },
       { icon: '🔄', text: '요금제 유지 기간 동안 계속 제공' },
     ],
-    note: '* 밀리의서재 앱 설치 후 스카이라이프 계정으로 연동 필요'
+    note: '* 밀리의서재 앱 설치 후 kt skylife 계정으로 연동 필요'
   },
   '모아진 잡지 무제한 구독': {
     icon: '📰',
@@ -726,7 +726,7 @@ const BENEFIT_DETAIL = {
       { icon: '📱', text: '모아진 앱에서 최신호 포함 전 호 이용 가능' },
       { icon: '🔄', text: '요금제 유지 기간 동안 계속 제공' },
     ],
-    note: '* 모아진 앱 설치 후 스카이라이프 계정으로 연동 필요'
+    note: '* 모아진 앱 설치 후 kt skylife 계정으로 연동 필요'
   },
   '네이버페이 5천P': {
     icon: '💚',
@@ -762,7 +762,7 @@ const BENEFIT_DETAIL = {
       { icon: '📱', text: 'SD 화질 제공, 동시 시청 1개 기기' },
       { icon: '🔄', text: '요금제 유지 기간 동안 계속 제공' },
     ],
-    note: '* 웨이브 앱 설치 후 스카이라이프 계정 연동 필요 / HD 화질은 스탠다드 이상'
+    note: '* 웨이브 앱 설치 후 kt skylife 계정 연동 필요 / HD 화질은 스탠다드 이상'
   },
   '왓챠 베이직 이용권': {
     icon: '🎥',
@@ -774,7 +774,7 @@ const BENEFIT_DETAIL = {
       { icon: '📱', text: '동시 시청 1개 기기, 오프라인 저장 5개 가능' },
       { icon: '🔄', text: '요금제 유지 기간 동안 계속 제공' },
     ],
-    note: '* 왓챠 앱 설치 후 스카이라이프 계정 연동 필요'
+    note: '* 왓챠 앱 설치 후 kt skylife 계정 연동 필요'
   },
   '지니뮤직 g포인트 8천': {
     icon: '🎵',
@@ -858,7 +858,7 @@ const BENEFIT_DETAIL = {
       { icon: '👣', text: '가족 실시간 위치 확인 기능 제공' },
       { icon: '🔔', text: '안전 구역(집·학교 등) 이탈 시 자동 알림' },
     ],
-    note: '* 전용 앱 설치 필요 / 보호자·피보호자 모두 스카이라이프 회원 등록 권장'
+    note: '* 전용 앱 설치 필요 / 보호자·피보호자 모두 kt skylife 회원 등록 권장'
   },
   '배달의민족 포인트': {
     icon: '🍔',
@@ -1047,11 +1047,11 @@ function buildPlanNotes(p) {
     notes.push('가족긴급보호 서비스 이용 시 전용 앱 설치 및 보호자 계정 연동이 필요합니다.');
   }
   if (p.benefit) {
-    notes.push('제휴혜택 이용 시 별도 앱 설치 및 스카이라이프 계정 연동이 필요합니다.');
+    notes.push('제휴혜택 이용 시 별도 앱 설치 및 kt skylife 계정 연동이 필요합니다.');
     notes.push('제휴혜택은 해당 요금제 유지 기간 동안 제공되며, 요금제 해지 또는 변경 시 자동 종료됩니다.');
     notes.push('제휴혜택의 세부 내용은 제휴사 정책에 따라 변경될 수 있습니다.');
   }
-  notes.push('요금제 변경은 매월 1회에 한해 고객센터(1588-3002) 또는 셀프케어(스카이라이프 앱)에서 신청 가능합니다.');
+  notes.push('요금제 변경은 매월 1회에 한해 고객센터(1588-3002) 또는 셀프케어(kt skylife 앱)에서 신청 가능합니다.');
   notes.push(`본 자료는 ${BASE_MONTH_LABEL} 기준이며, 요금·혜택은 사전 고지 후 변경될 수 있습니다.`);
   return notes;
 }
@@ -1122,7 +1122,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
 });
 </script>
-<footer style="text-align:center;padding:24px 20px;font-size:11px;color:var(--light);border-top:1px solid var(--border);background:var(--bg);">Created by 박정진 &nbsp;|&nbsp; 스카이라이프 모바일 요금제 안내</footer>
+<footer style="text-align:center;padding:24px 20px;font-size:11px;color:var(--light);border-top:1px solid var(--border);background:var(--bg);">Created by 박정진 &nbsp;|&nbsp; kt skylife 모바일 요금제 안내</footer>
 
 <!-- 일별 공지 팝업 -->
 <div class="notice-overlay" id="noticeOverlay" onclick="closeNotice()">
