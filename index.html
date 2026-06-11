@@ -389,7 +389,7 @@ tr:hover td{background:var(--red-light);}
 
 <!-- 요금제 상세 팝업 -->
 <div class="plan-modal-overlay" id="planModal" onclick="closePlanModal()">
-  <div class="plan-modal" id="planModalBox" onclick="closePlanModal()">
+  <div class="plan-modal" id="planModalBox" onclick="event.stopPropagation()">
     <div class="pm-top">
       <div class="pm-top-row">
         <div class="pm-name" id="pmName"></div>
