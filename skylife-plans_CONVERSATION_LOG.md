@@ -186,3 +186,23 @@
   - `Created by 박정진 | 스카이라이프 모바일 요금제 안내`
 - skylife-addons 푸터 스타일 기준으로 전 프로젝트 통일 작업의 일환
 - 커밋: `c7831de` — style: 푸터 디자인 통일
+
+---
+
+## 2026-06-11
+
+### 작업 내용
+- `<meta name="robots" content="noindex, nofollow">` 추가 (검색엔진 차단)
+- fetch 에러 처리: async/await 전환 + `!res.ok` 체크 + 다시 시도 버튼 + `#baseMonthLabel` "로딩 실패" 표시
+- localStorage 캐시 추가: `skylife_plans_v1` 키, 24h TTL
+- 브랜드 표기 통일: title·히어로·note 등 → `kt skylife`
+- footer 표기 통일: `Created by 박정진 | 모바일 요금제 안내`
+- footer 스타일 통일 (FAQ 기준): `position:fixed;bottom:0;padding:10px;color:#666666;z-index:50`
+- `main` padding-bottom 60px → 70px (fixed footer 콘텐츠 겹침 방지)
+
+### 버그 수정 (코드 리뷰)
+- 모달 내부 클릭 시 닫힘 버그: `planModalBox` onclick → `event.stopPropagation()` 으로 교체
+- 가격 슬라이더 최대값 하드코딩 제거: `PRICE_CEILING` 변수 도입, 데이터 로드 후 동적 계산
+- `noticeContent` null 방어: `getElementById` 결과 체크 후 접근
+- `openPlanModal()` 작은따옴표 취약성: `onclick` → `data-code` 속성 + 이벤트 위임 방식 전환
+- `err.message` XSS: innerHTML 삽입 전 HTML 이스케이프 처리
