@@ -575,7 +575,7 @@ function buildTable(plans) {
     const benefitCell = p.benefit
       ? `<span style="font-size:11px;color:var(--red);line-height:1.5;">🎁 ${p.benefit}</span>`
       : `<span style="color:var(--light)">-</span>`;
-    return `<tr class="plan-row" onclick="openPlanModal('${p.code}')">
+    return `<tr class="plan-row" data-code="${p.code.replace(/"/g,'&quot;')}">
       <td data-label="">
         <div class="plan-name">${p.name}${skyBadge}<span class="card-net-badge">${netBadge}</span></div>
         <div class="plan-code">${p.code}</div>
@@ -1100,13 +1100,20 @@ document.addEventListener('DOMContentLoaded', async function() {
       const [year, month] = ACTIVE_MONTH_KEY.split('-');
       BASE_MONTH_LABEL = `${year}년 ${parseInt(month)}월`;
       document.getElementById('baseMonthLabel').textContent = BASE_MONTH_LABEL + ' 기준';
-      document.getElementById('noticeContent').textContent = `${BASE_MONTH_LABEL} 요금제로 업데이트 되었습니다.`;
+      const noticeEl = document.getElementById('noticeContent');
+      if (noticeEl) noticeEl.textContent = `${BASE_MONTH_LABEL} 요금제로 업데이트 되었습니다.`;
 
       document.getElementById('cnt-lte').textContent = PLANS.filter(p => p.net === 'LTE').length;
       document.getElementById('cnt-5g').textContent  = PLANS.filter(p => p.net === '5G').length;
       document.getElementById('cnt-sky').textContent = PLANS.filter(p => p.sky).length;
       updateRangeUI();
       applyFilters();
+
+      // plan-row 클릭 이벤트 위임 (data-code 방식)
+      document.getElementById('mainContent').addEventListener('click', e => {
+        const row = e.target.closest('.plan-row');
+        if (row && row.dataset.code) openPlanModal(row.dataset.code);
+      });
 
       // 월이 바뀔 때만 공지 팝업 표시
       const NOTICE_KEY = `notice_closed_${ACTIVE_MONTH_KEY}`;
