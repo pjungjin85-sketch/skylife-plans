@@ -1061,12 +1061,28 @@ function closePlanModal() {
   document.body.style.overflow = '';
 }
 
+// ── 요금제 캐시 (24h) ──
+const _PLANS_CACHE_KEY = 'skylife_plans_v1';
+const _PLANS_CACHE_TTL = 86400 * 1000;
+async function fetchPlansData() {
+  try {
+    const cached = localStorage.getItem(_PLANS_CACHE_KEY);
+    if (cached) {
+      const { data, ts } = JSON.parse(cached);
+      if (Date.now() - ts < _PLANS_CACHE_TTL) return data;
+    }
+  } catch(e) { localStorage.removeItem(_PLANS_CACHE_KEY); }
+  const res = await fetch('data/plans.json');
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  try { localStorage.setItem(_PLANS_CACHE_KEY, JSON.stringify({ data, ts: Date.now() })); } catch(e) {}
+  return data;
+}
+
 // ── 초기 실행 ──
 document.addEventListener('DOMContentLoaded', async function() {
   try {
-  const res = await fetch('data/plans.json?t=' + Date.now());
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const data = await res.json();
+  const data = await fetchPlansData();
   {
       // 현재 월에 맞는 키 선택 (없으면 가장 최근 키로 폴백)
       const now = new Date();
