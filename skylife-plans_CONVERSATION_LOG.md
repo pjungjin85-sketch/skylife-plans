@@ -206,3 +206,10 @@
 - `noticeContent` null 방어: `getElementById` 결과 체크 후 접근
 - `openPlanModal()` 작은따옴표 취약성: `onclick` → `data-code` 속성 + 이벤트 위임 방식 전환
 - `err.message` XSS: innerHTML 삽입 전 HTML 이스케이프 처리
+
+---
+
+## 2026-07-16 업데이트 — Supabase 프로젝트 마이그레이션
+- 로그인 게이트(`profiles.status` 조회)가 참조하던 기존 Supabase 프로젝트가 90일 초과 일시정지로 복구 불가 확인 → 신규 프로젝트 `skylife-shared`(ref `qvzlwhwxspmofrwdvgdd`)로 URL/KEY 교체
+- 상세 배경은 skylife-inquiry의 `skylife-inquiry_CONVERSATION_LOG.md` 참고 (워크스페이스 6개 사이트 공용 이슈였음)
+- 이 커밋에는 이미 작업 중이던 로그인월(lock-overlay) 기능도 미커밋 상태로 함께 포함되어 같이 push/배포됨
