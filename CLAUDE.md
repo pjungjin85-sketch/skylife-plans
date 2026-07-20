@@ -5,7 +5,7 @@
 ## 이 페이지 정보
 - **용도**: 스카이라이프 모바일 전체 요금제 목록 (대리점 판매용)
 - **파일**: `index.html` (단일 파일)
-- **GitHub Pages URL**: https://jpjpjpjpjp21.github.io/skylife-plans/
+- **GitHub Pages URL**: https://pjungjin85-sketch.github.io/skylife-plans/
 
 ## 기능 구조
 - 요금제 카드 그리드 + 검색 + 카테고리 필터
