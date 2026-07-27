@@ -27,6 +27,8 @@ header{background:var(--bg);border-top:3px solid var(--red);border-bottom:1px so
 .header-badge{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.04em;white-space:nowrap;}
 .header-title{font-size:15px;font-weight:700;color:var(--dark);}
 .header-count{font-size:12px;color:var(--light);margin-left:auto;white-space:nowrap;}
+.guide-home-btn{margin-left:auto;padding:6px 14px;border:1px solid var(--border);border-radius:6px;font-size:12px;color:var(--mid);background:var(--bg);text-decoration:none;white-space:nowrap;font-family:inherit;flex-shrink:0;}
+.guide-home-btn:hover{border-color:var(--red);color:var(--red);}
 
 /* CONTROLS */
 .controls{max-width:1400px;margin:0 auto;padding:20px 20px 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
@@ -132,6 +134,7 @@ tr:hover td{background:var(--red-light);}
   .header-badge{font-size:9px;padding:2px 7px;}
   .header-title{font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .header-count{display:none;}
+  .guide-home-btn{padding:5px 8px;font-size:11px;}
 
   /* 컨트롤 row1, row3: 세로 쌓기 */
   .controls-row1,.controls-row3{flex-direction:column;align-items:stretch;}
@@ -414,6 +417,7 @@ tr:hover td{background:var(--red-light);}
     <span class="header-badge">MOBILE</span>
     <div class="header-title">전체 요금제 리스트</div>
     <div class="header-count" id="visible-count">115개 요금제</div>
+    <a href="https://skylife-guide-jyac.vercel.app/" class="guide-home-btn">돌아가기</a>
   </div>
 </header>
 
