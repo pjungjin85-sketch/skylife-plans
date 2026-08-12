@@ -2,6 +2,31 @@
 
 ---
 
+## 2026-07-21 — 캐시로 인한 "6월 기준" 잔존 문제 수정
+
+### 문제
+- 전날(7/20) 7월 요금제 데이터로 업데이트·배포했으나, 웹페이지에는 여전히 "6월 기준" 문구가 노출됨
+- 데이터(`data/plans.json`)에는 `2026-07` 키가 이미 정상 커밋·배포된 상태였음 (배포 자체는 문제없음)
+
+### 원인
+- `fetchPlansData()`의 localStorage 캐시(`skylife_plans_v1`, 24h TTL)가 원인
+- 어제 이전에 방문한 브라우저는 6월 데이터를 캐싱해두고 TTL 만료 전까지 서버 재요청 없이 캐시를 그대로 사용 → 배포해도 최대 24시간 동안 구버전이 보임
+
+### 수정 내용
+- 캐시 전략을 네트워크 우선(network-first)으로 변경
+  - `fetch('data/plans.json', { cache: 'no-store' })`를 항상 먼저 시도
+  - 실패(오프라인 등) 시에만 localStorage 캐시를 fallback으로 사용
+  - 24h TTL 조건 제거
+
+### 검증
+- 로컬 서버(`python3 -m http.server`)로 확인 후 배포
+
+### 커밋 / 배포
+- `13e9201` — fix: 요금제 데이터 캐시를 네트워크 우선으로 변경
+- `git push origin main` + `npx vercel deploy --prod` (https://skylife-plans-bec2.vercel.app)
+
+---
+
 ## 2026-06-01 — 6월 요금제 데이터 추가
 
 ### 작업 내용
@@ -221,3 +246,18 @@
 - skylife-guide/TPS에 있던 동일한 `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,...">` (kt skylife 빨간 로고 SVG)를 6개 파일 `<title>` 다음 줄에 그대로 추가
 - 커밋: `89e1b8a` — kt skylife 로고 favicon 추가 (skylife-plans)
 - 6개 프로젝트 전체 git push 완료 (GitHub Pages 자동 반영). skylife-inquiry는 Vercel 배포라 `npx vercel deploy --prod` 추가 실행
+
+---
+
+## 2026-07-27 업데이트 — 승인 취소 후에도 로그인 세션이 유지되는 문제 수정
+
+### 문제
+- `sessionStorage`에 `skylife_sso_ok=1` 캐시 플래그를 심어두고, 다음 로드부터는 이 플래그만 보고 바로 잠금을 풀어주던 방식(`init()`)이었음
+- 관리자가 대시보드에서 특정 계정을 `rejected`로 바꿔도, 이미 로그인해서 캐시 플래그가 남아있는 브라우저 탭에서는 여전히 접근 가능한 보안 허점이 있었음
+
+### 수정
+- `SESSION_FLAG` 캐시 플래그 제거
+- SSO 토큰(`#sso=`)이 없는 일반 재방문의 경우, `init()`이 매번 `sb.auth.getSession()`으로 실제 Supabase 세션을 가져온 뒤 `checkApprovedAndUnlock()`으로 `profiles.status`를 서버에서 재확인하도록 변경 — 승인 취소가 즉시 반영됨
+- TPS/skylife-addons/skylife-mobile-faq에도 동일 패턴으로 함께 적용됨(각 프로젝트 로그 참고)
+- 커밋: `789b30e` — fix: 승인 취소 후에도 로그인 세션이 유지되는 문제 수정
+- `git push` → Vercel 자동배포로 반영
