@@ -72,6 +72,7 @@ tr:hover td{background:var(--red-light);}
 .plan-name{font-weight:700;color:var(--black);font-size:13px;}
 .plan-code{font-size:10px;color:var(--light);margin-top:2px;font-family:monospace;}
 .sky-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;background:var(--red-light);color:var(--red);border:1px solid var(--red-border);margin-left:5px;vertical-align:middle;}
+.corp-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;background:rgba(217,119,6,.08);color:#b45309;border:1px solid rgba(217,119,6,.25);margin-left:5px;vertical-align:middle;white-space:nowrap;}
 .card-net-badge{display:none;margin-left:4px;vertical-align:middle;}
 
 .price{font-weight:700;font-size:14px;}
@@ -687,6 +688,7 @@ function buildTable(plans) {
       ? '<span class="cat-network net-5g">5G</span>'
       : '<span class="cat-network net-lte">LTE</span>';
     const skyBadge = p.sky ? '<span class="sky-badge">SKY</span>' : '';
+    const corpBadge = p.corp === false ? '<span class="corp-badge">법인불가</span>' : '';
     const voiceDisplay = p.voice !== '-' ? p.voice : '-';
     const dataQos = p.qos && p.qos !== '-'
       ? `<span class="spec-chip">${p.data}</span><span class="spec-chip" style="border-color:var(--red-border);color:var(--red);">${p.qos}</span>`
@@ -696,7 +698,7 @@ function buildTable(plans) {
       : `<span style="color:var(--light)">-</span>`;
     return `<tr class="plan-row" data-code="${p.code.replace(/"/g,'&quot;')}">
       <td data-label="">
-        <div class="plan-name">${p.name}${skyBadge}<span class="card-net-badge">${netBadge}</span></div>
+        <div class="plan-name">${p.name}${skyBadge}${corpBadge}<span class="card-net-badge">${netBadge}</span></div>
         <div class="plan-code">${p.code}</div>
       </td>
       <td data-label="청구액"><span class="price ${pc}">${p.price.toLocaleString()}원</span></td>
@@ -1017,6 +1019,10 @@ function openPlanModal(code) {
     `<span style="font-size:24px;font-weight:900;color:${pc}">${p.price.toLocaleString()}원</span>`+
     `<span style="font-size:12px;color:var(--mid);margin-left:6px">VAT 포함</span>`;
 
+  const corpRow = typeof p.corp === 'boolean'
+    ? `<span class="pm-info-label">법인 개통</span><span class="pm-info-val ${p.corp ? 'pm-vit-ok' : 'pm-vit-no'}">${p.corp ? '\u2714 가능' : '\u2718 불가'}</span>`
+    : '';
+
   const netTag = p.net === '5G'
     ? '<span class="pm-tag pm-tag-5g">5G</span>'
     : '<span class="pm-tag pm-tag-lte">LTE</span>';
@@ -1107,6 +1113,7 @@ function openPlanModal(code) {
         <span class="pm-info-label">통신망</span><span class="pm-info-val">${p.net}</span>
         <span class="pm-info-label">카테고리</span><span class="pm-info-val">${p.cat}</span>
         <span class="pm-info-label">구분</span><span class="pm-info-val">${p.sky ? '대리점 전용' : '직영 및 대리점'}</span>
+        ${corpRow}
       </div>
     </div>
     <div class="pm-section">
@@ -1141,6 +1148,9 @@ function buildPlanNotes(p) {
     notes.push('데이터 소진 후에도 음성통화·문자(SMS)는 정상 이용됩니다.');
   } else if (p.qos === '-' && p.data !== '-') {
     notes.push('기본 데이터 소진 후 추가 사용이 불가하며, 데이터 추가 구매(충전)가 필요합니다.');
+  }
+  if (p.corp === false) {
+    notes.push('법인 명의로는 개통이 불가한 요금제입니다. 개인 명의로만 가입 가능합니다.');
   }
   if (p.sky) {
     notes.push('대리점 전용 상품으로 대리점 방문 개통만 가능합니다.');

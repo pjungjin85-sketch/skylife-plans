@@ -6610,7 +6610,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "선택형",
@@ -6628,7 +6629,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "선택형",
@@ -6646,7 +6648,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "선택형",
@@ -6664,7 +6667,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "음성 무제한",
@@ -6682,7 +6686,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "음성 무제한",
@@ -6700,7 +6705,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "음성 무제한",
@@ -6718,7 +6724,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "음성 무제한",
@@ -6736,7 +6743,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "음성 무제한",
@@ -6754,7 +6762,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "음성 무제한",
@@ -6772,7 +6781,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "음성 무제한",
@@ -6790,7 +6800,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -6808,7 +6819,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "데이터 무제한",
@@ -6826,7 +6838,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "데이터 무제한",
@@ -6844,7 +6857,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "데이터 무제한",
@@ -6862,7 +6876,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -6880,7 +6895,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -6898,7 +6914,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -6916,7 +6933,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -6934,7 +6952,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -6952,7 +6971,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -6970,7 +6990,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -6988,7 +7009,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "데이터 무제한",
@@ -7006,7 +7028,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7024,7 +7047,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "완전 무제한",
@@ -7042,7 +7066,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "완전 무제한",
@@ -7060,7 +7085,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "완전 무제한",
@@ -7078,7 +7104,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "완전 무제한",
@@ -7096,7 +7123,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "완전 무제한",
@@ -7114,7 +7142,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "주니어",
@@ -7132,7 +7161,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "주니어",
@@ -7150,7 +7180,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "주니어",
@@ -7168,7 +7199,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "주니어",
@@ -7186,7 +7218,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "시니어",
@@ -7204,7 +7237,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "시니어",
@@ -7222,7 +7256,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "시니어",
@@ -7240,7 +7275,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "시니어",
@@ -7258,7 +7294,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "시니어",
@@ -7276,7 +7313,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "시니어",
@@ -7294,7 +7332,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "스마트기기",
@@ -7312,7 +7351,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "스마트기기",
@@ -7330,7 +7370,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "가족긴급보호",
@@ -7348,7 +7389,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "가족긴급보호",
@@ -7366,7 +7408,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "가족긴급보호",
@@ -7384,7 +7427,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "가족긴급보호",
@@ -7402,7 +7446,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -7420,7 +7465,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -7438,7 +7484,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -7456,7 +7503,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7474,7 +7522,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -7492,7 +7541,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7510,7 +7560,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7528,7 +7579,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7546,7 +7598,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7564,7 +7617,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7582,7 +7636,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7600,7 +7655,8 @@
       "nungu": "+5GB (LTE)",
       "uit": "+5GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -7618,7 +7674,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -7636,7 +7693,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -7654,7 +7712,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7672,7 +7731,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -7690,7 +7750,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7708,7 +7769,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7726,7 +7788,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7744,7 +7807,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7762,7 +7826,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -7780,7 +7845,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -7798,7 +7864,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -7816,7 +7883,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7834,7 +7902,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -7852,7 +7921,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7870,7 +7940,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7888,7 +7959,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7906,7 +7978,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7924,7 +7997,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7942,7 +8016,8 @@
       "nungu": "+10GB (LTE)",
       "uit": "+10GB (LTE)",
       "promo": "+10GB (24개월)",
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -7960,7 +8035,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7978,7 +8054,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -7996,7 +8073,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -8014,7 +8092,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8032,7 +8111,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8050,7 +8130,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8068,7 +8149,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8086,7 +8168,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8104,7 +8187,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8122,7 +8206,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8140,7 +8225,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8158,7 +8244,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -8176,7 +8263,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -8194,7 +8282,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -8212,7 +8301,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8230,7 +8320,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8248,7 +8339,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -8266,7 +8358,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -8284,7 +8377,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -8302,7 +8396,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8320,7 +8415,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": false
     },
     {
       "cat": "제휴형",
@@ -8338,7 +8434,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8356,7 +8453,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8374,7 +8472,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8392,7 +8491,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8410,7 +8510,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "현장 전용",
@@ -8428,7 +8529,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8446,7 +8548,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "제휴형",
@@ -8464,7 +8567,8 @@
       "nungu": "+20GB (LTE)",
       "uit": "+20GB (LTE)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 선택형",
@@ -8482,7 +8586,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 선택형",
@@ -8500,7 +8605,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 선택형",
@@ -8518,7 +8624,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 선택형",
@@ -8536,7 +8643,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8554,7 +8662,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8572,7 +8681,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 음성 무제한",
@@ -8590,7 +8700,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 음성 무제한",
@@ -8608,7 +8719,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 음성 무제한",
@@ -8626,7 +8738,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 음성 무제한",
@@ -8644,7 +8757,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 음성 무제한",
@@ -8662,7 +8776,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 음성 무제한",
@@ -8680,7 +8795,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8698,7 +8814,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8716,7 +8833,8 @@
       "nungu": "+10GB (5G)",
       "uit": "+10GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8734,7 +8852,8 @@
       "nungu": "+10GB (5G)",
       "uit": "+10GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8752,7 +8871,8 @@
       "nungu": "+10GB (5G)",
       "uit": "+10GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8770,7 +8890,8 @@
       "nungu": "+20GB (5G)",
       "uit": "+20GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 완전 무제한",
@@ -8788,7 +8909,8 @@
       "nungu": "+20GB (5G)",
       "uit": "+20GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 제휴형",
@@ -8806,7 +8928,8 @@
       "nungu": "+10GB (5G)",
       "uit": "+10GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 제휴형",
@@ -8824,7 +8947,8 @@
       "nungu": "+10GB (5G)",
       "uit": "+10GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 제휴형",
@@ -8842,7 +8966,8 @@
       "nungu": "+20GB (5G)",
       "uit": "+20GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "5G 제휴형",
@@ -8860,7 +8985,8 @@
       "nungu": "+20GB (5G)",
       "uit": "+20GB (5G)",
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "웨어러블",
@@ -8878,7 +9004,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": false
+      "vit": false,
+      "corp": true
     },
     {
       "cat": "복지전용",
@@ -8896,7 +9023,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": true
+      "vit": true,
+      "corp": true
     },
     {
       "cat": "데이터 쉐어링",
@@ -8914,7 +9042,8 @@
       "nungu": null,
       "uit": null,
       "promo": null,
-      "vit": false
+      "vit": false,
+      "corp": true
     }
   ]
 }
