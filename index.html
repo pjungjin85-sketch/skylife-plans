@@ -10,293 +10,29 @@
 <meta http-equiv="Expires" content="0">
 <title>kt skylife 모바일 전체 요금제 — 대리점 판매용</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0id2hpdGUiLz48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjciIGZpbGw9IiNFNjAwMTIiLz48dGV4dCB4PSI1MCIgeT0iNTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjMwIiBmaWxsPSIjMUExQTFBIj5rdDwvdGV4dD48dGV4dCB4PSI1MCIgeT0iODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjIwIiBmaWxsPSIjRTYwMDEyIj5za3lsaWZlPC90ZXh0Pjwvc3ZnPg==">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" integrity="sha384-0w2KAL2YHP6wKOkUDzkCDGgVvfmHnj02DHeQ6XcHOgTfFsGyonKOpShMH1x6nk9o" crossorigin="anonymous"></script>
-<style>
-:root{--red:#E60012;--red2:#CC0010;--red-light:#FFF5F5;--red-border:#FFCCCC;--black:#1A1A1A;--dark:#333333;--mid:#666666;--light:#999999;--bg:#FFFFFF;--bg2:#F7F7F7;--bg3:#FAFAFA;--border:#E8E8E8;--shadow:0 2px 12px rgba(0,0,0,0.08);--shadow-hover:0 6px 24px rgba(0,0,0,0.12);--accent:#E60012;--accent2:#CC0010;--surface:#FFFFFF;--surface2:#F7F7F7;--text:#1A1A1A;--text-muted:#666666;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--dark);font-family:'Noto Sans KR',sans-serif;min-height:100vh;}
-
-/* HEADER */
-header{background:var(--bg);border-top:3px solid var(--red);border-bottom:1px solid var(--border);padding:0 20px;position:sticky;top:0;z-index:200;box-shadow:var(--shadow);}
-.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:56px;gap:12px;}
-.back-btn{display:flex;align-items:center;gap:6px;color:var(--red);font-size:13px;font-weight:600;text-decoration:none;padding:6px 12px;border-radius:4px;border:1px solid var(--red-border);background:var(--red-light);transition:all .2s;cursor:pointer;}
-.back-btn:hover{background:rgba(230,0,18,.12);}
-.logo-text{font-size:18px;font-weight:900;color:var(--black);letter-spacing:-.02em;white-space:nowrap;}
-.logo-text span{color:var(--red);}
-.header-badge{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.04em;white-space:nowrap;}
-.header-title{font-size:15px;font-weight:700;color:var(--dark);}
-.header-count{font-size:12px;color:var(--light);margin-left:auto;white-space:nowrap;}
-.guide-home-btn{padding:6px 14px;border:none;border-radius:6px;font-size:12px;font-weight:700;color:#fff;background:#22C55E;text-decoration:none;white-space:nowrap;font-family:inherit;flex-shrink:0;}
-.guide-home-btn:hover{background:#16A34A;}
-
-/* CONTROLS */
-.controls{max-width:1400px;margin:0 auto;padding:20px 20px 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
-.search-wrap{position:relative;flex:1;min-width:220px;max-width:360px;}
-.search-wrap input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:9px 12px 9px 36px;color:var(--dark);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s;}
-.search-wrap input:focus{border-color:var(--red);}
-.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--light);font-size:14px;}
-.filter-group{display:flex;gap:6px;flex-wrap:wrap;}
-.filter-btn{padding:7px 14px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--bg);color:var(--mid);transition:all .2s;font-family:inherit;}
-.filter-btn:hover{border-color:var(--red-border);color:var(--dark);}
-.filter-btn.active{background:var(--red);color:#fff;border-color:transparent;}
-.filter-btn.sky-only{border-color:var(--red-border);color:var(--red);}
-.filter-btn.sky-only.active{background:var(--red);color:#fff;}
-
-/* STATS BAR */
-.stats-bar{max-width:1400px;margin:12px auto 0;padding:0 20px;display:flex;gap:12px;flex-wrap:wrap;}
-.stat-chip{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:7px 12px;font-size:12px;color:var(--mid);box-shadow:var(--shadow);}
-.stat-chip .num{font-weight:700;color:var(--red);}
-
-/* CATEGORY SECTIONS */
-main{max-width:1400px;margin:20px auto;padding:0 20px 70px;}
-.cat-section{margin-bottom:32px;}
-.cat-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-.cat-title{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--red);text-transform:uppercase;}
-.cat-count{font-size:11px;color:var(--mid);background:var(--bg2);padding:2px 8px;border-radius:10px;}
-.cat-network{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;}
-.net-lte{background:rgba(16,185,129,.1);color:#059669;border:1px solid rgba(16,185,129,.2);}
-.net-5g{background:rgba(124,58,237,.1);color:#7c3aed;border:1px solid rgba(124,58,237,.2);}
-.net-mix{background:var(--red-light);color:var(--red);border:1px solid var(--red-border);}
-
-/* PLAN TABLE */
-.plan-table-wrap{overflow-x:auto;border-radius:6px;border:1px solid var(--border);box-shadow:var(--shadow);}
-table{width:100%;border-collapse:collapse;font-size:12px;min-width:500px;}
-thead tr{background:var(--black);}
-th{padding:10px 12px;text-align:left;font-size:11px;font-weight:700;color:#fff;letter-spacing:.04em;border-bottom:1px solid var(--border);white-space:nowrap;}
-td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle;line-height:1.5;color:var(--dark);}
-tr:nth-child(even) td{background:var(--bg2);}
-tr:last-child td{border-bottom:none;}
-tr:hover td{background:var(--red-light);}
-
-.plan-name{font-weight:700;color:var(--black);font-size:13px;}
-.plan-code{font-size:10px;color:var(--light);margin-top:2px;font-family:monospace;}
-.sky-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;background:var(--red-light);color:var(--red);border:1px solid var(--red-border);margin-left:5px;vertical-align:middle;}
-.corp-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;background:rgba(217,119,6,.08);color:#b45309;border:1px solid rgba(217,119,6,.25);margin-left:5px;vertical-align:middle;white-space:nowrap;}
-.card-net-badge{display:none;margin-left:4px;vertical-align:middle;}
-
-.price{font-weight:700;font-size:14px;}
-.price-green{color:#059669;}
-.price-gold{color:#d97706;}
-.price-blue{color:var(--red);}
-
-.spec-chip{display:inline-block;background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:11px;color:var(--mid);margin:1px 2px;}
-
-.benefit-text{font-size:11px;color:var(--red);max-width:220px;line-height:1.5;}
-
-/* EMPTY */
-.empty{text-align:center;padding:60px 20px;color:var(--mid);}
-.empty-icon{font-size:40px;margin-bottom:12px;}
-
-/* LEGEND */
-.legend{max-width:1400px;margin:0 auto;padding:0 20px 16px;display:flex;gap:16px;flex-wrap:wrap;}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mid);}
-.legend-dot{width:10px;height:10px;border-radius:50%;}
-
-.controls-row1{max-width:1400px;margin:0 auto;padding:20px 20px 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
-.controls-row2{max-width:1400px;margin:8px auto 0;padding:0 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
-.row2-label{font-size:11px;font-weight:700;color:var(--mid);letter-spacing:.04em;margin-right:2px;}
-.sort-btn{padding:6px 13px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--bg);color:var(--mid);transition:all .2s;font-family:inherit;}
-.sort-btn:hover{border-color:var(--red-border);color:var(--dark);}
-.sort-btn.active{background:var(--red);color:#fff;border-color:transparent;}
-.sort-btn.sky-sort{border-color:var(--red-border);color:var(--red);}
-.sort-btn.sky-sort.active{background:var(--red);color:#fff;}
-
-/* FILTER ROW3 */
-.controls-row3{max-width:1400px;margin:8px auto 0;padding:0 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
-.filter-block{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.filter-label{font-size:11px;font-weight:700;color:var(--mid);letter-spacing:.04em;white-space:nowrap;}
-/* 슬라이더 */
-.range-wrap{display:flex;align-items:center;gap:8px;}
-.range-track{position:relative;width:200px;height:20px;display:flex;align-items:center;}
-.range-track input[type=range]{position:absolute;width:100%;pointer-events:none;-webkit-appearance:none;appearance:none;height:4px;background:transparent;outline:none;}
-.range-track input[type=range]::-webkit-slider-thumb{pointer-events:all;-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--red);border:2px solid #fff;cursor:pointer;box-shadow:0 0 0 2px var(--red-border);}
-.range-track input[type=range]::-moz-range-thumb{pointer-events:all;width:16px;height:16px;border-radius:50%;background:var(--red);border:2px solid #fff;cursor:pointer;}
-.range-fill{position:absolute;height:4px;background:linear-gradient(90deg,var(--red2),var(--red));border-radius:2px;pointer-events:none;}
-.range-bg{position:absolute;width:100%;height:4px;background:var(--border);border-radius:2px;}
-.range-val{font-size:12px;font-weight:700;color:var(--red);white-space:nowrap;min-width:90px;}
-/* 셀렉트 */
-.benefit-select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 30px 7px 10px;color:var(--dark);font-size:12px;font-family:inherit;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999999'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;min-width:180px;}
-.benefit-select:focus{border-color:var(--red);}
-.reset-filters{padding:6px 12px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid var(--red-border);background:var(--red-light);color:var(--red);font-family:inherit;transition:all .2s;}
-.reset-filters:hover{background:rgba(230,0,18,.15);}
-/* ── TABLET (≤900px) ── */
-@media(max-width:900px){
-  table{font-size:11px;}
-  th,td{padding:8px 8px;}
-  .benefit-link{max-width:180px;}
-}
-
-/* ── MOBILE (≤767px) ── */
-@media(max-width:767px){
-  /* 헤더 */
-  .back-btn{font-size:12px;padding:5px 10px;flex-shrink:0;}
-  .logo-text{font-size:15px;flex-shrink:0;}
-  .header-badge{font-size:9px;padding:2px 7px;}
-  .header-title{font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .header-count{display:none;}
-  .guide-home-btn{margin-left:auto;padding:5px 8px;font-size:11px;}
-
-  /* 컨트롤 row1, row3: 세로 쌓기 */
-  .controls-row1,.controls-row3{flex-direction:column;align-items:stretch;}
-  .search-wrap{max-width:100%;min-width:0;}
-  .filter-group{width:100%;}
-  .filter-btn{flex:1;text-align:center;}
-
-  /* filter-block: 레이블 + 컨트롤 세로 배치 */
-  .filter-block{flex-direction:column;align-items:stretch;gap:6px;width:100%;}
-  .range-wrap{width:100%;display:flex;align-items:center;gap:8px;}
-  .range-track{flex:1;width:0;} /* width:0 + flex:1 = 고정px 해제 */
-  .range-val{flex-shrink:0;min-width:72px;text-align:right;}
-  .benefit-select{width:100%;min-width:0;box-sizing:border-box;}
-  .reset-filters{width:100%;text-align:center;padding:9px;}
-
-  /* row2 정렬버튼: 줄바꿈 */
-  .controls-row2{flex-wrap:wrap;overflow-x:visible;padding-bottom:0;}
-  .sort-btn{flex-shrink:1;white-space:nowrap;}
-  .row2-label{flex-shrink:0;}
-
-  /* Stats / Legend */
-  .stat-chip{font-size:11px;padding:5px 10px;}
-  .legend-item{font-size:10px;}
-
-  /* ── 테이블 → 카드 레이아웃 ── */
-  .plan-table-wrap{border:none;box-shadow:none;overflow:visible;background:transparent;}
-  table{display:block;min-width:0;width:100%;} /* min-width:500px 해제 */
-  thead,tbody,th,td,tr{display:block;}
-  thead tr{position:absolute;top:-9999px;left:-9999px;visibility:hidden;}
-  tr{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:8px;
-    margin-bottom:10px;
-    box-shadow:var(--shadow);
-    overflow:hidden;
-  }
-  tr:nth-child(even) td{background:transparent;}
-  tr:hover td{background:transparent;}
-  td{
-    border:none;
-    border-bottom:1px solid var(--bg2);
-    padding:9px 14px;
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    font-size:12px;
-    min-width:0; /* flex 자식 overflow 방지 */
-    overflow-wrap:break-word;
-    word-break:break-all;
-  }
-  td:last-child{border-bottom:none;}
-  td::before{
-    content:attr(data-label);
-    font-size:10px;
-    font-weight:700;
-    color:var(--mid);
-    min-width:52px;
-    flex-shrink:0;
-    padding-top:2px;
-    letter-spacing:.03em;
-    word-break:keep-all; /* 라벨 텍스트는 줄바꿈 안 함 */
-  }
-  /* 카드 헤더 셀 (요금제명) */
-  td[data-label=""]{
-    background:var(--bg2);
-    display:block;
-    padding:10px 14px;
-    border-bottom:2px solid var(--border);
-    overflow-wrap:break-word;
-    word-break:break-all;
-  }
-  td[data-label=""]::before{display:none;}
-
-  /* 통신망 컬럼 숨김 → 카드 헤더에 뱃지로 표시 */
-  .col-net{display:none;}
-  .card-net-badge{display:inline;}
-
-  .plan-name{font-size:13px;}
-  .plan-code{font-size:10px;margin-top:3px;word-break:break-all;}
-  .spec-chip{font-size:11px;}
-  .cat-section{margin-bottom:20px;}
-
-  .benefit-link{display:none;}
-}
-
-/* ── 소형폰 (≤480px) ── */
-@media(max-width:480px){
-  .back-text{display:none;} /* "← 개통 가이드로 돌아가기" → "←" 만 표시 */
-  .back-btn{padding:5px 10px;}
-  .logo-text{font-size:13px;}
-  .header-badge{display:none;}
-  .header-title{font-size:12px;}
-  main{padding:0 12px 40px;}
-  .controls-row1,.controls-row2,.controls-row3{padding-left:12px;padding-right:12px;}
-  .stats-bar,.legend{padding-left:12px;padding-right:12px;}
-  td{padding:8px 12px;gap:8px;}
-  td[data-label=""]{padding:9px 12px;}
-  td::before{min-width:44px;}
-}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-
-/* ── 일별 공지 팝업 ── */
-.notice-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;}
-.notice-overlay.open{opacity:1;pointer-events:all;}
-.notice-box{background:var(--bg);border-radius:14px;width:100%;max-width:480px;box-shadow:0 20px 60px rgba(0,0,0,.25);transform:translateY(20px);transition:transform .25s;overflow:hidden;}
-.notice-overlay.open .notice-box{transform:translateY(0);}
-.notice-head{background:var(--red);padding:18px 20px;display:flex;align-items:center;gap:10px;}
-.notice-head-icon{font-size:20px;}
-.notice-head-title{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.01em;}
-.notice-body{padding:24px 20px;}
-.notice-content{font-size:14px;color:var(--dark);line-height:1.7;white-space:pre-wrap;}
-.notice-foot{padding:12px 20px 20px;text-align:center;font-size:11px;color:var(--light);}
-
-/* ── PLAN DETAIL MODAL (addons 스타일) ── */
-.plan-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;}
-.plan-modal-overlay.open{opacity:1;pointer-events:all;}
-.plan-modal{background:var(--bg);border-radius:14px;width:100%;max-width:580px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2);transform:translateY(20px);transition:transform .25s;}
-.plan-modal-overlay.open .plan-modal{transform:translateY(0);}
-.pm-top{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);padding:18px 20px 14px;z-index:2;border-radius:14px 14px 0 0;}
-.pm-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
-.pm-name{font-size:17px;font-weight:700;color:var(--black);line-height:1.35;flex:1;}
-.pm-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--mid);padding:0 4px;line-height:1;flex-shrink:0;}
-.pm-close:hover{color:var(--dark);}
-.pm-price-row{margin-top:10px;}
-.pm-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
-.pm-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;}
-.pm-tag-lte{background:rgba(16,185,129,.1);color:#059669;border:1px solid rgba(16,185,129,.2);}
-.pm-tag-5g{background:rgba(124,58,237,.1);color:#7c3aed;border:1px solid rgba(124,58,237,.2);}
-.pm-tag-sky{background:#fef3c7;color:#d97706;border:1px solid #fde68a;}
-.pm-tag-cat{background:var(--bg2);color:var(--mid);border:1px solid var(--border);}
-.pm-body{padding:20px;}
-.pm-section{margin-bottom:22px;}
-.pm-section:last-child{margin-bottom:0;}
-.pm-section-title{font-size:11px;font-weight:700;color:var(--red);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.pm-section-title::after{content:'';flex:1;height:1px;background:var(--red-border);}
-.pm-info-grid{display:grid;grid-template-columns:auto 1fr;gap:7px 14px;font-size:13px;}
-.pm-info-label{color:var(--mid);font-weight:600;white-space:nowrap;}
-.pm-info-val{color:var(--dark);line-height:1.55;}
-.pm-feature-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--dark);line-height:1.55;margin-bottom:6px;}
-.pm-feature-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
-.pm-benefit-name{font-size:16px;font-weight:900;color:var(--red);margin-bottom:4px;}
-.pm-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:var(--red-light);color:var(--red);border:1px solid var(--red-border);margin-bottom:10px;}
-.pm-qos-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-top:8px;}
-.pm-warn-box{background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.2);border-radius:8px;padding:12px 14px;}
-.pm-combine-grid{display:flex;flex-direction:column;gap:8px;}
-.pm-combine-row{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--bg2);border-radius:8px;}
-.pm-combine-label{font-size:12px;color:var(--mid);font-weight:500;}
-.pm-combine-val{font-size:13px;font-weight:700;color:var(--dark);}
-.pm-combine-none{font-size:12px;font-weight:400;color:var(--light);}
-.pm-vit-ok{color:#16a34a;}
-.pm-vit-no{color:var(--red);}
-.pm-note{font-size:11px;color:var(--mid);border-top:1px solid var(--border);margin-top:10px;padding-top:10px;line-height:1.6;}
-.plan-row{cursor:pointer;}
-@media(max-width:767px){
-  .plan-modal-overlay{align-items:flex-end;padding:0;}
-  .plan-modal{border-radius:14px 14px 0 0;max-height:92vh;}
-}
-</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><path d="m16.5 16.5 4 4"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z"/></symbol>
+<symbol id="i-won" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5 7.5 17 12 8l4.5 9L20 7.5M3.5 11.5h17"/></symbol>
+<symbol id="i-call" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 20.5A14 14 0 0 1 3.5 8.5L5.8 6a1.3 1.3 0 0 1 1.9.1l1.8 2.3a1.3 1.3 0 0 1-.1 1.7L8.2 11.3a10.5 10.5 0 0 0 4.5 4.5l1.2-1.2a1.3 1.3 0 0 1 1.7-.1l2.3 1.8a1.3 1.3 0 0 1 .1 1.9z"/></symbol>
+<symbol id="i-sms" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.8 6.5 8.2 6 8.2-6"/></symbol>
+<symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-4M9.3 20V12M14.7 20V8M20 20V4"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11.5" rx="2"/><path d="M3 13.5h18M12 9v11.5"/><path d="M12 9S9.8 4.5 7.5 5.2 8.8 9 12 9zm0 0s2.2-4.5 4.5-3.8S15.2 9 12 9z"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+<symbol id="i-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 2.6 17.2A2 2 0 0 0 4.3 20.2h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4M12 17h.01"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.7 20.3a2 2 0 0 1-3.4 0"/><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.3-2.5 8.3h17S18 15 18 8.5z"/></symbol>
+</defs></svg>
+
 <div id="lock-overlay">
   <div class="lock-box">
     <div class="lock-logo">kt <span>skylife</span></div>
@@ -313,29 +49,6 @@ tr:hover td{background:var(--red-light);}
     </div>
   </div>
 </div>
-<style>
-#lock-overlay{position:fixed;inset:0;z-index:9999;background:var(--bg2);display:flex;align-items:center;justify-content:center;padding:20px;}
-#lock-overlay.hidden{display:none;}
-.lock-box{background:var(--bg);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:16px;padding:40px 36px 32px;width:100%;max-width:380px;box-shadow:var(--shadow);text-align:center;}
-.lock-logo{font-size:20px;font-weight:900;color:var(--black);margin-bottom:4px;}
-.lock-logo span{color:var(--red);}
-.lock-sub{font-size:12px;color:var(--light);margin-bottom:24px;line-height:1.5;}
-.lock-loading{display:flex;justify-content:center;padding:24px 0;}
-.spinner{width:26px;height:26px;border:3px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:lock-spin .7s linear infinite;}
-@keyframes lock-spin{to{transform:rotate(360deg);}}
-.login-area{display:none;}
-.login-area.show{display:block;}
-#login-form{display:flex;flex-direction:column;gap:10px;text-align:left;}
-.auth-field label{font-size:11px;font-weight:700;color:var(--dark);margin-bottom:4px;display:block;}
-.auth-field input{width:100%;padding:11px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;color:var(--black);transition:border-color .15s;}
-.auth-field input:focus{border-color:var(--red);}
-.auth-submit-btn{width:100%;padding:13px;background:var(--red);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;font-family:inherit;cursor:pointer;margin-top:4px;transition:background .15s;}
-.auth-submit-btn:hover{background:var(--red2);}
-.auth-submit-btn:disabled{background:var(--light);cursor:not-allowed;}
-.auth-msg{font-size:12px;margin-top:6px;min-height:16px;text-align:center;}
-.auth-msg.error{color:var(--red);}
-.lock-hint{font-size:11px;color:var(--light);margin-top:18px;line-height:1.5;}
-</style>
 <script>
 (function(){
   var SUPABASE_URL = 'https://qvzlwhwxspmofrwdvgdd.supabase.co';
@@ -414,30 +127,24 @@ tr:hover td{background:var(--red-light);}
 <header>
   <div class="header-inner">
     <div class="logo-text">kt <span>skylife</span></div>
-    <span class="header-badge">MOBILE</span>
+    <span class="header-badge">대리점 전용</span>
     <div class="header-title">전체 요금제 리스트</div>
     <div class="header-count" id="visible-count">115개 요금제</div>
-    <a href="https://skylife-guide-jyac.vercel.app/" class="guide-home-btn">돌아가기</a>
+    <a href="https://skylife-guide-jyac.vercel.app/" class="guide-home-btn"><svg><use href="#i-back"></use></svg>가이드로</a>
   </div>
 </header>
 
-<div style="background:var(--bg);border-bottom:1px solid var(--border);padding:32px 24px 24px;position:relative;overflow:hidden;">
-  <div style="position:absolute;right:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(230,0,18,.06) 0%,transparent 70%);pointer-events:none;"></div>
-  <div style="max-width:1400px;margin:0 auto;">
-    <div style="display:inline-flex;align-items:center;gap:6px;background:var(--red-light);border:1px solid var(--red-border);color:var(--red);font-size:11px;font-weight:700;padding:4px 12px;border-radius:3px;margin-bottom:14px;letter-spacing:.04em;">
-      <span style="font-size:8px;animation:blink 1.4s infinite">●</span> <span id="baseMonthLabel">로딩 중</span>
-    </div>
-    <h1 style="font-size:clamp(20px,3.5vw,32px);font-weight:900;line-height:1.3;margin-bottom:8px;color:var(--black);">
-      kt skylife 모바일 <em style="color:var(--red);font-style:normal;">전체 요금제</em>
-    </h1>
-    <p style="font-size:13px;color:var(--mid);line-height:1.7;max-width:600px;">LTE · 5G 전 요금제 수록 — 대리점 판매용 내부 자료</p>
-    <div style="width:48px;height:3px;background:var(--red);margin-top:16px;border-radius:2px;"></div>
+<div class="monthbar">
+  <div class="monthbar-inner">
+    <div class="monthbar-meta"><span id="baseMonthLabel">로딩 중</span></div>
+    <h1>kt skylife 모바일 전체 요금제</h1>
+    <p>LTE · 5G 전 요금제 수록 — 대리점 판매용 내부 자료</p>
   </div>
 </div>
 <div class="controls-row1">
   <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="요금제명 / 혜택 검색..." oninput="applyFilters()">
+    <svg><use href="#i-search"></use></svg>
+    <input type="text" class="search-input" id="searchInput" placeholder="요금제명 / 혜택 검색" oninput="applyFilters()">
   </div>
   <div class="filter-group" id="netFilter">
     <button class="filter-btn active" onclick="setNet(this,'all')">전체</button>
@@ -447,16 +154,16 @@ tr:hover td{background:var(--red-light);}
 </div>
 <div class="controls-row2">
   <span class="row2-label">정렬 · 필터</span>
-  <button class="sort-btn sky-sort" id="btnSky" onclick="setSort('sky')">★ 현장전용 먼저</button>
-  <button class="sort-btn" id="btnPrice" onclick="setSort('price')">💰 가격순</button>
-  <button class="sort-btn" id="btnVoice" onclick="setSort('voice')">📞 음성순</button>
-  <button class="sort-btn" id="btnSms" onclick="setSort('sms')">✉️ 문자순</button>
-  <button class="sort-btn" id="btnData" onclick="setSort('data')">📶 데이터순</button>
+  <button class="sort-btn sky-sort" id="btnSky" onclick="setSort('sky')"><svg><use href="#i-star"></use></svg>현장전용 먼저</button>
+  <button class="sort-btn" id="btnPrice" onclick="setSort('price')"><svg><use href="#i-won"></use></svg>가격순</button>
+  <button class="sort-btn" id="btnVoice" onclick="setSort('voice')"><svg><use href="#i-call"></use></svg>음성순</button>
+  <button class="sort-btn" id="btnSms" onclick="setSort('sms')"><svg><use href="#i-sms"></use></svg>문자순</button>
+  <button class="sort-btn" id="btnData" onclick="setSort('data')"><svg><use href="#i-signal"></use></svg>데이터순</button>
 </div>
 
 <div class="controls-row3">
   <div class="filter-block">
-    <span class="filter-label">💰 가격대</span>
+    <span class="filter-label">가격대</span>
     <div class="range-wrap">
       <div class="range-track">
         <div class="range-bg"></div>
@@ -468,7 +175,7 @@ tr:hover td{background:var(--red-light);}
     </div>
   </div>
   <div class="filter-block">
-    <span class="filter-label">🎁 제휴혜택</span>
+    <span class="filter-label">제휴혜택</span>
     <select class="benefit-select" id="benefitSelect" onchange="applyFilters()">
       <option value="">전체</option>
       <option value="밀리의서재">밀리의서재 이용권</option>
@@ -488,7 +195,7 @@ tr:hover td{background:var(--red-light);}
       <option value="후후">후후 보이스피싱 예방</option>
     </select>
   </div>
-  <button class="reset-filters" onclick="resetFilters()">✕ 필터 초기화</button>
+  <button class="reset-filters" onclick="resetFilters()"><svg><use href="#i-x"></use></svg>필터 초기화</button>
 </div>
 
 <div class="stats-bar">
@@ -497,12 +204,11 @@ tr:hover td{background:var(--red-light);}
   <div class="stat-chip">현장전용(SKY) <span class="num" id="cnt-sky">?</span></div>
 </div>
 
-<div class="legend" style="margin-top:8px">
-  <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div> SKY = 대리점 현장전용 상품</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#34d399"></div> 녹색 가격 = ~1만원</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div> 금색 가격 = 1만~3만원</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> 파란색 가격 = 3만원~</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> 보라 = 5G</div>
+<div class="legend">
+  <div class="legend-item"><span class="sky-badge">SKY</span> 대리점 현장전용 상품</div>
+  <div class="legend-item"><span class="corp-badge">법인불가</span> 법인 명의 개통 불가</div>
+  <div class="legend-item"><span class="cat-network net-5g">5G</span> 5G 요금제</div>
+</div>
 </div>
 
 <main id="mainContent"></main>
@@ -654,7 +360,7 @@ function renderPlans(plans) {
   const main = document.getElementById('mainContent');
   if (!main) return;
   if (!plans.length) {
-    main.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div><div>조건에 맞는 요금제가 없습니다</div></div>';
+    main.innerHTML = '<div class="empty"><div class="empty-icon"><svg><use href="#i-search"></use></svg></div><div>조건에 맞는 요금제가 없습니다</div></div>';
     return;
   }
   if (currentSort) {
@@ -694,7 +400,7 @@ function buildTable(plans) {
       ? `<span class="spec-chip">${p.data}</span><span class="spec-chip" style="border-color:var(--red-border);color:var(--red);">${p.qos}</span>`
       : `<span class="spec-chip">${p.data}</span>`;
     const benefitCell = p.benefit
-      ? `<span style="font-size:11px;color:var(--red);line-height:1.5;">🎁 ${p.benefit}</span>`
+      ? `<span class="benefit-text">${p.benefit}</span>`
       : `<span style="color:var(--light)">-</span>`;
     return `<tr class="plan-row" data-code="${p.code.replace(/"/g,'&quot;')}">
       <td data-label="">
@@ -729,7 +435,6 @@ const QOS_DETAIL = {
   '200Kbps': {
     label: '200 Kbps',
     grade: '최저 속도',
-    gradeColor: '#999',
     items: [
       { icon: '✅', text: '카카오톡 텍스트 메시지 수신' },
       { icon: '✅', text: '간단한 이메일 텍스트 확인' },
@@ -743,7 +448,6 @@ const QOS_DETAIL = {
   '400Kbps': {
     label: '400 Kbps',
     grade: '기본 속도',
-    gradeColor: '#f59e0b',
     items: [
       { icon: '✅', text: '카카오톡 메시지 및 이미지 전송 (약간 느림)' },
       { icon: '✅', text: '간단한 웹 검색 및 텍스트 페이지 열람' },
@@ -757,7 +461,6 @@ const QOS_DETAIL = {
   '1Mbps': {
     label: '1 Mbps',
     grade: '일반 속도',
-    gradeColor: '#3b82f6',
     items: [
       { icon: '✅', text: '카카오톡·SNS — 이미지 포함 원활히 이용' },
       { icon: '✅', text: '웹 서핑 전반적으로 이용 가능 (약간 느림)' },
@@ -771,7 +474,6 @@ const QOS_DETAIL = {
   '3Mbps': {
     label: '3 Mbps',
     grade: '준수 속도',
-    gradeColor: '#10b981',
     items: [
       { icon: '✅', text: '카카오톡·SNS·웹 서핑 — 불편함 없이 이용' },
       { icon: '✅', text: '음악 스트리밍 — 모든 음질 원활히 재생' },
@@ -785,7 +487,6 @@ const QOS_DETAIL = {
   '5Mbps': {
     label: '5 Mbps',
     grade: '빠른 속도',
-    gradeColor: '#8b5cf6',
     items: [
       { icon: '✅', text: '카카오톡·SNS·웹 서핑 — 매우 원활' },
       { icon: '✅', text: '음악 스트리밍 — 모든 음질 완벽 재생' },
@@ -799,7 +500,6 @@ const QOS_DETAIL = {
   '10Mbps': {
     label: '10 Mbps',
     grade: '고속',
-    gradeColor: '#e60012',
     items: [
       { icon: '✅', text: '카카오톡·SNS·웹 서핑 — 완전 원활' },
       { icon: '✅', text: '유튜브 4K(UHD) 화질 재생 가능' },
@@ -1008,13 +708,21 @@ const BENEFIT_DETAIL = {
 };
 
 // ── 요금제 상세 모달 ──
+function featIcon(ch){
+  /* 의미가 있는 것만 아이콘으로 쓴다. 나머지 장식용 이모지는 중립 점으로. */
+  if(ch === '\u2705') return '<span class="pm-feature-icon ok"><svg><use href="#i-ok"></use></svg></span>';
+  if(ch === '\u274C' || ch === '\uD83D\uDCF5') return '<span class="pm-feature-icon no"><svg><use href="#i-no"></use></svg></span>';
+  if(ch === '\u26A0\uFE0F' || ch === '\u26A0' || ch === '\uD83D\uDEA8') return '<span class="pm-feature-icon warn"><svg><use href="#i-warn"></use></svg></span>';
+  return '<span class="pm-feature-icon dot"></span>';
+}
+
 function openPlanModal(code) {
   const p = PLANS.find(pl => pl.code === code);
   if (!p) return;
 
   document.getElementById('pmName').textContent = p.name;
 
-  const pc = p.price <= 10000 ? '#059669' : p.price <= 30000 ? '#d97706' : 'var(--red)';
+  const pc = 'var(--black)';
   document.getElementById('pmPrice').innerHTML =
     `<span style="font-size:24px;font-weight:900;color:${pc}">${p.price.toLocaleString()}원</span>`+
     `<span style="font-size:12px;color:var(--mid);margin-left:6px">VAT 포함</span>`;
@@ -1026,26 +734,26 @@ function openPlanModal(code) {
   const netTag = p.net === '5G'
     ? '<span class="pm-tag pm-tag-5g">5G</span>'
     : '<span class="pm-tag pm-tag-lte">LTE</span>';
-  const skyTag = p.sky ? '<span class="pm-tag pm-tag-sky">★ 현장전용</span>' : '';
+  const skyTag = p.sky ? '<span class="pm-tag pm-tag-sky">현장전용</span>' : '';
   document.getElementById('pmTags').innerHTML = netTag + skyTag + `<span class="pm-tag pm-tag-cat">${p.cat}</span>`;
 
   // 기본 제공 정보
   const voiceRow = p.voice !== '-'
-    ? `<span class="pm-info-label">📞 음성</span><span class="pm-info-val">${p.voice}${p.video && p.video!=='-' ? ` <span style="font-size:11px;color:var(--mid)">(영상통화 ${p.video})</span>` : ''}</span>` : '';
+    ? `<span class="pm-info-label"><svg><use href="#i-call"></use></svg>음성</span><span class="pm-info-val">${p.voice}${p.video && p.video!=='-' ? ` <span style="font-size:11px;color:var(--mid)">(영상통화 ${p.video})</span>` : ''}</span>` : '';
   const smsRow = p.sms !== '-'
-    ? `<span class="pm-info-label">✉️ 문자</span><span class="pm-info-val">${p.sms}</span>` : '';
+    ? `<span class="pm-info-label"><svg><use href="#i-sms"></use></svg>문자</span><span class="pm-info-val">${p.sms}</span>` : '';
   const qosRow = p.qos && p.qos !== '-'
-    ? `<span class="pm-info-label">⚡ QoS</span><span class="pm-info-val">${p.qos} <span style="font-size:11px;color:var(--mid)">(데이터 소진 후)</span></span>` : '';
+    ? `<span class="pm-info-label"><svg><use href="#i-signal"></use></svg>QoS</span><span class="pm-info-val">${p.qos} <span style="font-size:11px;color:var(--mid)">(데이터 소진 후)</span></span>` : '';
 
   // QoS 상세 박스
   let qosBox = '';
   if (p.qos && p.qos !== '-' && QOS_DETAIL[p.qos]) {
     const qd = QOS_DETAIL[p.qos];
     const qItems = qd.items.map(i =>
-      `<div class="pm-feature-item"><span class="pm-feature-icon">${i.icon}</span><span>${i.text}</span></div>`
+      `<div class="pm-feature-item">${featIcon(i.icon)}<span>${i.text}</span></div>`
     ).join('');
     qosBox = `<div class="pm-qos-box">
-      <div style="font-size:12px;font-weight:700;color:${qd.gradeColor};margin-bottom:8px">📶 ${qd.label} — ${qd.grade}</div>
+      <div style="font-size:12px;font-weight:700;color:var(--black);margin-bottom:8px">${qd.label} — ${qd.grade}</div>
       ${qItems}
       <div style="font-size:10px;color:var(--mid);margin-top:6px;line-height:1.5">${qd.note}</div>
     </div>`;
@@ -1057,7 +765,7 @@ function openPlanModal(code) {
     const bd = BENEFIT_DETAIL[p.benefit];
     if (bd) {
       const bItems = bd.items.map(i =>
-        `<div class="pm-feature-item"><span class="pm-feature-icon">${i.icon}</span><span>${i.text}</span></div>`
+        `<div class="pm-feature-item">${featIcon(i.icon)}<span>${i.text}</span></div>`
       ).join('');
       benefitSection = `<div class="pm-section">
         <div class="pm-section-title">제휴혜택</div>
@@ -1069,7 +777,7 @@ function openPlanModal(code) {
     } else {
       benefitSection = `<div class="pm-section">
         <div class="pm-section-title">제휴혜택</div>
-        <div class="pm-feature-item"><span class="pm-feature-icon">🎁</span><span>${p.benefit}</span></div>
+        <div class="pm-feature-item"><span class="pm-feature-icon"><svg><use href="#i-gift"></use></svg></span><span>${p.benefit}</span></div>
       </div>`;
     }
   }
@@ -1121,7 +829,7 @@ function openPlanModal(code) {
       <div class="pm-info-grid">
         ${voiceRow}
         ${smsRow}
-        <span class="pm-info-label">📶 데이터</span><span class="pm-info-val">${p.data}</span>
+        <span class="pm-info-label"><svg><use href="#i-signal"></use></svg>데이터</span><span class="pm-info-val">${p.data}</span>
         ${qosRow}
       </div>
       ${qosBox}
@@ -1252,7 +960,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById('baseMonthLabel').textContent = '로딩 실패';
     document.getElementById('mainContent').innerHTML = `
       <div class="empty">
-        <div class="empty-icon">⚠️</div>
+        <div class="empty-icon"><svg><use href="#i-warn"></use></svg></div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">데이터를 불러오지 못했습니다</div>
         <div style="font-size:12px;color:var(--light);margin-bottom:16px;">${err.message.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}</div>
         <button onclick="location.reload()" style="background:var(--red);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">다시 시도</button>
@@ -1266,7 +974,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 <div class="notice-overlay" id="noticeOverlay" onclick="closeNotice()">
   <div class="notice-box" onclick="event.stopPropagation()">
     <div class="notice-head">
-      <span class="notice-head-icon">📢</span>
+      <span class="notice-head-icon"><svg><use href="#i-bell"></use></svg></span>
       <span class="notice-head-title">중요 안내</span>
     </div>
     <div class="notice-body">
