@@ -23,7 +23,7 @@ body{background:var(--bg2);}
 .back-btn:hover,.guide-home-btn:hover{border-color:var(--light);background:var(--bg2);}
 .back-btn:hover svg,.guide-home-btn:hover svg{color:var(--black);}
 .guide-home-btn{margin-left:auto;}
-.header-count{margin-left:auto;}
+.header-title .header-count{font-weight:500;margin-left:2px;}
 
 /* ============================================================
    기준월 안내 바
@@ -321,7 +321,6 @@ tbody tr:hover td{background:var(--bg3);}
 @media(max-width:767px){
   .logo-text{font-size:16px;flex-shrink:0;}
   .header-title{display:none;}
-  .header-count{display:none;}
   .back-btn{padding:6px 10px;}
 
   .controls-row1,.controls-row2,.controls-row3{
